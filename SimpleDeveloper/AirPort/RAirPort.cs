@@ -1,24 +1,21 @@
-﻿using Nest;
-using RestSharp;
+﻿using RestSharp;
 using SimpleDeveloper.InAndOutModel;
 using System;
 using System.Collections.Generic;
-using System.Data.Common;
-using System.Linq;
 
-namespace Port
+namespace AirPort
 {
-    public class RPort : IPort
+    public class RAirPort : IAirPort
     {
 
-        public ResponseBase<List<MPort.Response>> MultipleGet(MPort.FilterForm form)
+        public ResponseBase<List<MAirPort.Response>> MultipleGet(MAirPort.FilterForm form)
         {
-            ResponseBase<List<MPort.Response>> rb = new ResponseBase<List<MPort.Response>>();
+            ResponseBase<List<MAirPort.Response>> rb = new ResponseBase<List<MAirPort.Response>>();
             try
             {
                 form.Search = form.Search?.ToLower();
 
-                var client = new RestClient("https://localhost:44392/api/Port/MultipleGet");
+                var client = new RestClient("https://localhost:44392/api/AirPort/MultipleGet");
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJiNDhjMjk0ZS01ODdjLTQ2YjUtOTk5ZC00NjQ3MDgwY2YzM2EiLCJqdGkiOiIyMWM3YWE3Mi00ZGQ0LTRkYTMtYTExOS1lMzJjNzAyYzc4MzAiLCJuYmYiOjE2Njg4NDk5NDIsImV4cCI6MTY3MTQ0MTk0MiwiaXNzIjoiaHR0cHM6Ly9mb3JjZWdldC5jb20vIiwiYXVkIjoiZGV2In0.wb5OGXbVHy6m2038VUaCtcAnWwjS4ftT2eD89VuOxLU");
                 request.AddParameter("Sort.Column", form.Sort.Column);

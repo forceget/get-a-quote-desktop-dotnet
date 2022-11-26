@@ -1,9 +1,8 @@
-﻿using Port;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Port
+namespace SimpleDeveloper.InAndOutModel
 {
      public partial interface IBase<T,T1,T2>
     {

@@ -1,4 +1,5 @@
-﻿using Nest;
+﻿using AirPort;
+using Nest;
 using Newtonsoft.Json;
 using Port;
 using System;
@@ -24,13 +25,26 @@ namespace SimpleDeveloper
         private void PortGet(object sender, EventArgs e)
         {
             RPort r = new RPort();
-            FilterForm formP = new FilterForm();
-            formP.Take = 10;
-            formP.Offset = 0;
-            formP.Sort.Column = "NAME";
-            formP.Sort.Type = "ASC";
+            FilterForm formPort = new FilterForm();
+            formPort.Take = 10;
+            formPort.Offset = 0;
+            formPort.Sort.Column = "NAME";
+            formPort.Sort.Type = "ASC";
 
-            var liste = r.MultipleGet(formP).Item;
+            var liste = r.MultipleGet(formPort).Item;
+            var data = JsonConvert.DeserializeObject(liste);
+            richTextBox1.Text = data.ToString();
+        }
+        private void AirPortGet(object sender, EventArgs e)
+        {
+            RAirPort airPort = new RAirPort();
+            MAirPort.FilterForm formAirPort = new MAirPort.FilterForm();
+            formAirPort.Take = 10;
+            formAirPort.Offset = 0;
+            formAirPort.Sort.Column = "NAME";
+            formAirPort.Sort.Type = "ASC";
+
+            var liste = airPort.MultipleGet(formAirPort).Item;
             var data = JsonConvert.DeserializeObject(liste);
             richTextBox1.Text = data.ToString();
         }

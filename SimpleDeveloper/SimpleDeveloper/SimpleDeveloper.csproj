@@ -12,6 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AirPort\AirPort.csproj" />
     <ProjectReference Include="..\Port\Port.csproj" />
     <ProjectReference Include="..\SimpleDeveloper.InAndOutModel\SimpleDeveloper.InAndOutModel.csproj" />
   </ItemGroup>
