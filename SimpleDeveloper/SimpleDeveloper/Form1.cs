@@ -1,4 +1,5 @@
 ﻿using AirPort;
+using City;
 using Country;
 using Nest;
 using Newtonsoft.Json;
@@ -73,6 +74,19 @@ namespace SimpleDeveloper
             formState.Sort.Type = "ASC";
 
             var liste = state.MultipleGet(formState).Item;
+            var data = JsonConvert.DeserializeObject(liste);
+            richTextBox1.Text = data.ToString();
+        }
+        private void CityGet(object sender, EventArgs e)
+        {
+            RCity city = new RCity();
+            MCity.FilterForm formCity = new MCity.FilterForm();
+            formCity.Take = 10;
+            formCity.Offset = 0;
+            formCity.Sort.Column = "NAME";
+            formCity.Sort.Type = "ASC";
+
+            var liste = city.MultipleGet(formCity).Item;
             var data = JsonConvert.DeserializeObject(liste);
             richTextBox1.Text = data.ToString();
         }

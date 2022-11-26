@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AirPort\AirPort.csproj" />
+    <ProjectReference Include="..\City\City.csproj" />
     <ProjectReference Include="..\Country\Country.csproj" />
     <ProjectReference Include="..\Port\Port.csproj" />
     <ProjectReference Include="..\SimpleDeveloper.InAndOutModel\SimpleDeveloper.InAndOutModel.csproj" />
