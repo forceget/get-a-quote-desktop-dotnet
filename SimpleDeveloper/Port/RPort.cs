@@ -9,19 +9,6 @@ namespace Port
 {
     public class RPort : IPort
     {
-        public ResponseBase<MPort.Response> Add(MPort form, string currentUserId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ResponseBase<string> Delete(string id, string currentUserId)
-        {
-            throw new NotImplementedException();
-        }
-        public ResponseBase<string> Delete(MPort.FilterForm form, string currentUserId)
-        {
-            throw new NotImplementedException();
-        }
 
         public ResponseBase<List<MPort.Response>> MultipleGet(MPort.FilterForm form)
         {
@@ -51,14 +38,5 @@ namespace Port
             }
         }
 
-        public ResponseBase<MPort.Response> SingleGet(string id, string currentUserId)
-        {
-            throw new NotImplementedException();
-        }
-
-        public ResponseBase<MPort.Response> Update(MPort form, string currentUserId)
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -25,10 +25,10 @@ namespace SimpleDeveloper
         {
             RPort r = new RPort();
             FilterForm formP = new FilterForm();
-            formP.Take = 10000;
+            formP.Take = 10;
             formP.Offset = 0;
-            formP.Sort.Column = "id";
-            formP.Sort.Type = "asc";
+            formP.Sort.Column = "NAME";
+            formP.Sort.Type = "ASC";
 
             var liste = r.MultipleGet(formP).Item;
             var data = JsonConvert.DeserializeObject(liste);
