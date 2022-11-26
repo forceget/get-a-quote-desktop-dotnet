@@ -50,7 +50,7 @@ namespace Location
             public bool? IsCompanyOnly { get; set; } = false;
             public string Id { get; set; }
             public string Name { get; set; }
-            public List<int> LocationTypes { get; set; }
+            public int LocationTypes { get; set; }
             public string CountryId { get; set; }
             public string CountryName { get; set; }
             public string CountryCode { get; set; }

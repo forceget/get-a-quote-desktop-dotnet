@@ -104,5 +104,33 @@ namespace SimpleDeveloper
             var data = JsonConvert.DeserializeObject(liste);
             richTextBox1.Text = data.ToString();
         }
+        private void AmazonFulfillmentCenterGet(object sender, EventArgs e)
+        {
+            RLocation location = new RLocation();
+            MLocation.FilterForm formLocation = new MLocation.FilterForm();
+            formLocation.Take = 10;
+            formLocation.Offset = 0;
+            formLocation.Sort.Column = "NAME";
+            formLocation.Sort.Type = "ASC";
+            formLocation.LocationTypes = 1;
+
+            var liste = location.MultipleGet(formLocation).Item;
+            var data = JsonConvert.DeserializeObject(liste);
+            richTextBox1.Text = data.ToString();
+        }
+        private void ForcegetWarehouseGet(object sender, EventArgs e)
+        {
+            RLocation location = new RLocation();
+            MLocation.FilterForm formLocation = new MLocation.FilterForm();
+            formLocation.Take = 10;
+            formLocation.Offset = 0;
+            formLocation.Sort.Column = "NAME";
+            formLocation.Sort.Type = "ASC";
+            formLocation.LocationTypes = 7;
+
+            var liste = location.MultipleGet(formLocation).Item;
+            var data = JsonConvert.DeserializeObject(liste);
+            richTextBox1.Text = data.ToString();
+        }
     }
 }

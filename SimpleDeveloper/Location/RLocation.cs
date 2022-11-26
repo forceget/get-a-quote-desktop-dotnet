@@ -22,6 +22,7 @@ namespace Location
                 request.AddParameter("Take", form.Take);
                 request.AddParameter("Sort.Type", form.Sort.Type);
                 request.AddParameter("Offset", form.Offset);
+                request.AddParameter("LocationTypes", form.LocationTypes);
 
                 IRestResponse response = client.Execute(request);
                 var data = response.Content;
