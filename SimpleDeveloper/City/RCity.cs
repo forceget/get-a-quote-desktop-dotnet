@@ -20,6 +20,7 @@ namespace City
                 request.AddParameter("Take", form.Take);
                 request.AddParameter("Sort.Type", form.Sort.Type);
                 request.AddParameter("Offset", form.Offset);
+                request.AddParameter("Search", form.Search);
 
                 IRestResponse response = client.Execute(request);
                 var data = response.Content;
