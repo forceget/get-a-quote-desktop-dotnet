@@ -13,7 +13,6 @@ namespace AirPort
             ResponseBase<List<MAirPort.Response>> rb = new ResponseBase<List<MAirPort.Response>>();
             try
             {
-                form.Search = form.Search?.ToLower();
 
                 var client = new RestClient("https://localhost:44392/api/AirPort/MultipleGet");
                 var request = new RestRequest(Method.POST);
@@ -22,6 +21,7 @@ namespace AirPort
                 request.AddParameter("Take", form.Take);
                 request.AddParameter("Sort.Type", form.Sort.Type);
                 request.AddParameter("Offset", form.Offset);
+                request.AddParameter("Search", form.Search);
 
                 IRestResponse response = client.Execute(request);
                 var data = response.Content;

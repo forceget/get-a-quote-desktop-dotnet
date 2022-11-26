@@ -60,6 +60,7 @@ namespace SimpleDeveloper
             formCountry.Offset = 0;
             formCountry.Sort.Column = "NAME";
             formCountry.Sort.Type = "ASC";
+            formCountry.Search = "Turkey";
 
             var liste = country.MultipleGet(formCountry).Item;
             var data = JsonConvert.DeserializeObject(liste);

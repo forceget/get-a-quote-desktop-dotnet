@@ -13,8 +13,6 @@ namespace City
             ResponseBase<List<MCity.Response>> rb = new ResponseBase<List<MCity.Response>>();
             try
             {
-                form.Search = form.Search?.ToLower();
-
                 var client = new RestClient("https://localhost:44392/api/City/MultipleGet");
                 var request = new RestRequest(Method.POST);
                 request.AddHeader("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJiNDhjMjk0ZS01ODdjLTQ2YjUtOTk5ZC00NjQ3MDgwY2YzM2EiLCJqdGkiOiIyMWM3YWE3Mi00ZGQ0LTRkYTMtYTExOS1lMzJjNzAyYzc4MzAiLCJuYmYiOjE2Njg4NDk5NDIsImV4cCI6MTY3MTQ0MTk0MiwiaXNzIjoiaHR0cHM6Ly9mb3JjZWdldC5jb20vIiwiYXVkIjoiZGV2In0.wb5OGXbVHy6m2038VUaCtcAnWwjS4ftT2eD89VuOxLU");
