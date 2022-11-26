@@ -16,6 +16,7 @@
     <ProjectReference Include="..\Country\Country.csproj" />
     <ProjectReference Include="..\Port\Port.csproj" />
     <ProjectReference Include="..\SimpleDeveloper.InAndOutModel\SimpleDeveloper.InAndOutModel.csproj" />
+    <ProjectReference Include="..\State\State.csproj" />
   </ItemGroup>
 
 </Project>

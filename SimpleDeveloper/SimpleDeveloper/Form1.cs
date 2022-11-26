@@ -3,6 +3,7 @@ using Country;
 using Nest;
 using Newtonsoft.Json;
 using Port;
+using State;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -59,6 +60,19 @@ namespace SimpleDeveloper
             formCountry.Sort.Type = "ASC";
 
             var liste = country.MultipleGet(formCountry).Item;
+            var data = JsonConvert.DeserializeObject(liste);
+            richTextBox1.Text = data.ToString();
+        }
+        private void StateGet(object sender, EventArgs e)
+        {
+            RState state = new RState();
+            MState.FilterForm formState = new MState.FilterForm();
+            formState.Take = 10;
+            formState.Offset = 0;
+            formState.Sort.Column = "NAME";
+            formState.Sort.Type = "ASC";
+
+            var liste = state.MultipleGet(formState).Item;
             var data = JsonConvert.DeserializeObject(liste);
             richTextBox1.Text = data.ToString();
         }
