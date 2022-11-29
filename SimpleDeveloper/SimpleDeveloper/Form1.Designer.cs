@@ -126,7 +126,6 @@
             this.button8.Text = "Forceget Warehouse";
             this.button8.UseVisualStyleBackColor = true;
             this.button8.Click += new System.EventHandler(this.ForcegetWarehouseGet);
-
             // 
             // Form1
             // 
