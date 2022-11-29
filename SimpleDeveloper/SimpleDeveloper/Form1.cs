@@ -2,9 +2,9 @@
 using City;
 using Country;
 using Location;
-using Nest;
 using Newtonsoft.Json;
 using Port;
+using RestSharp.Extensions;
 using State;
 using System;
 using System.Collections.Generic;
@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using static Port.MPort;
 
 namespace SimpleDeveloper
@@ -36,8 +37,8 @@ namespace SimpleDeveloper
             formPort.Sort.Type = "ASC";
 
             var liste = r.MultipleGet(formPort).Item;
-            var data = JsonConvert.DeserializeObject(liste);
-            richTextBox1.Text = data.ToString();
+            //var data = JsonConvert.DeserializeObject(liste);
+            //richTextBox1.Text = data.ToString();
         }
         private void AirPortGet(object sender, EventArgs e)
         {
@@ -49,8 +50,8 @@ namespace SimpleDeveloper
             formAirPort.Sort.Type = "ASC";
 
             var liste = airPort.MultipleGet(formAirPort).Item;
-            var data = JsonConvert.DeserializeObject(liste);
-            richTextBox1.Text = data.ToString();
+            richTextBox1.Text = liste.FirstOrDefault(k=>k.Name != null).Name;
+
         }
         private void CountryGet(object sender, EventArgs e)
         {
@@ -62,8 +63,8 @@ namespace SimpleDeveloper
             formCountry.Sort.Type = "ASC";
 
             var liste = country.MultipleGet(formCountry).Item;
-            var data = JsonConvert.DeserializeObject(liste);
-            richTextBox1.Text = data.ToString();
+            //var data = JsonConvert.DeserializeObject(liste);
+            //richTextBox1.Text = data.ToString();
         }
         private void StateGet(object sender, EventArgs e)
         {
@@ -75,8 +76,8 @@ namespace SimpleDeveloper
             formState.Sort.Type = "ASC";
 
             var liste = state.MultipleGet(formState).Item;
-            var data = JsonConvert.DeserializeObject(liste);
-            richTextBox1.Text = data.ToString();
+            //var data = JsonConvert.DeserializeObject(liste);
+            //richTextBox1.Text = data.ToString();
         }
         private void CityGet(object sender, EventArgs e)
         {
@@ -88,8 +89,8 @@ namespace SimpleDeveloper
             formCity.Sort.Type = "ASC";
 
             var liste = city.MultipleGet(formCity).Item;
-            var data = JsonConvert.DeserializeObject(liste);
-            richTextBox1.Text = data.ToString();
+            //var data = JsonConvert.DeserializeObject(liste);
+            //richTextBox1.Text = data.ToString();
         }
         private void LocationGet(object sender, EventArgs e)
         {
@@ -101,8 +102,8 @@ namespace SimpleDeveloper
             formLocation.Sort.Type = "ASC";
 
             var liste = location.MultipleGet(formLocation).Item;
-            var data = JsonConvert.DeserializeObject(liste);
-            richTextBox1.Text = data.ToString();
+            //var data = JsonConvert.DeserializeObject(liste);
+            //richTextBox1.Text = data.ToString();
         }
         private void AmazonFulfillmentCenterGet(object sender, EventArgs e)
         {
@@ -115,8 +116,8 @@ namespace SimpleDeveloper
             formLocation.LocationTypes = 1;
 
             var liste = location.MultipleGet(formLocation).Item;
-            var data = JsonConvert.DeserializeObject(liste);
-            richTextBox1.Text = data.ToString();
+            //var data = JsonConvert.DeserializeObject(liste);
+            //richTextBox1.Text = data.ToString();
         }
         private void ForcegetWarehouseGet(object sender, EventArgs e)
         {
@@ -129,8 +130,8 @@ namespace SimpleDeveloper
             formLocation.LocationTypes = 7;
 
             var liste = location.MultipleGet(formLocation).Item;
-            var data = JsonConvert.DeserializeObject(liste);
-            richTextBox1.Text = data.ToString();
+            //var data = JsonConvert.DeserializeObject(liste);
+            //richTextBox1.Text = data.ToString();
         }
     }
 }
