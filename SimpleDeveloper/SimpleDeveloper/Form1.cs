@@ -49,9 +49,10 @@ namespace SimpleDeveloper
             formAirPort.Sort.Column = "NAME";
             formAirPort.Sort.Type = "ASC";
 
-            var liste = airPort.MultipleGet(formAirPort).Item;
-            richTextBox1.Text = liste.FirstOrDefault(k=>k.Name != null).Name;
+            var item = airPort.MultipleGet(formAirPort).Item;
+            comboBox1.Items.Clear();
 
+            comboBox1.Items.AddRange(new object[] {item});
         }
         private void CountryGet(object sender, EventArgs e)
         {
@@ -132,6 +133,21 @@ namespace SimpleDeveloper
             var liste = location.MultipleGet(formLocation).Item;
             //var data = JsonConvert.DeserializeObject(liste);
             //richTextBox1.Text = data.ToString();
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RAirPort airPort = new RAirPort();
+            MAirPort.FilterForm formAirPort = new MAirPort.FilterForm();
+            formAirPort.Take = 10;
+            formAirPort.Offset = 0;
+            formAirPort.Sort.Column = "NAME";
+            formAirPort.Sort.Type = "ASC";
+
+            var item = airPort.MultipleGet(formAirPort).Item;
+            comboBox1.Items.Clear();
+
+            comboBox1.Items.AddRange(new string[] { item.ToString() });
         }
     }
 }

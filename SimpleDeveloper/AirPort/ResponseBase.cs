@@ -12,8 +12,7 @@ namespace SimpleDeveloper.InAndOutModel
         public string StatusText { get; set; }
 
         public List<string> StatusTexts { get; set; } = new List<string>();
-        [JsonProperty("item")]
-        public T Item { get; set; }
+        public List<string> Item { get; set; }
 
         public dynamic Total { get; set; }
 
