@@ -71,47 +71,7 @@ namespace AirPort
             public long Count { get; set; } = 0;
 
         }
-        //public class LocationType
-        //{
-        //    public int Id { get; set; }
-        //    public string Name { get; set; }
-        //    public string Detail { get; set; }
-
-        //}
-        //public class Data
-        //{
-        //    public string Id { get; set; }
-
-        //    public string Name { get; set; }
-
-        //    public string CountryId { get; set; }
-
-        //    public string CityId { get; set; }
-
-        //    public string StateId { get; set; }
-
-        //    public string CountryName { get; set; }
-
-        //    public string CountryCode { get; set; }
-
-        //    public string CityName { get; set; }
-
-        //    public string Type { get; set; }
-
-        //    public string Code { get; set; }
-
-        //    public double? Latitude { get; set; }
-
-        //    public double? Longitude { get; set; }
-
-        //    public int? LocationTypeId { get; set; }
-        //    public string ZipCode { get; set; }
-        //    public string Address { get; set; }
-        //    public MCountry Country { get; set; }
-        //    public MState State { get; set; }
-        //    public MCity City { get; set; }
-        //    public LocationType LocationType { get; set; }
-        //}
+        
         #region root
         public class City
         {

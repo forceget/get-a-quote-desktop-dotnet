@@ -1,16 +1,18 @@
-﻿using RestSharp;
+﻿using Country;
+using RestSharp;
 using SimpleDeveloper.InAndOutModel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace State
 {
     public class RState : IState
     {
 
-        public ResponseBase<List<MState.Response>> MultipleGet(MState.FilterForm form)
+        public ResponseBase<List<MState.Root>> MultipleGet(MState.FilterForm form)
         {
-            ResponseBase<List<MState.Response>> rb = new ResponseBase<List<MState.Response>>();
+            ResponseBase<List<MState.Root>> rb = new ResponseBase<List<MState.Root>>();
             try
             {
                 var client = new RestClient("https://localhost:44392/api/State/MultipleGet");
@@ -22,8 +24,10 @@ namespace State
                 request.AddParameter("Offset", form.Offset);
                 request.AddParameter("Search", form.Search);
 
-                IRestResponse response = client.Execute(request);
-                var data = response.Content;
+                var response = client.Execute<MState.Root>(request);
+                var data = response.Data.item.Select(x => x.name).ToList();
+                rb.Item = data.ToList();
+
 
                 return rb;
             }

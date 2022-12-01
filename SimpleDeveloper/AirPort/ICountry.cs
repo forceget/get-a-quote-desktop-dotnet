@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Country
 {
-    public interface ICountry : IBase<MCountry.Response, MCountry, MCountry.FilterForm>
+    public interface ICountry : IBase<MCountry.Root, MCountry, MCountry.FilterForm>
     {
 
     }

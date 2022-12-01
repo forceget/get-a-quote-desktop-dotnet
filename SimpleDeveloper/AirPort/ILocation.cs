@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Location
 {
-    public interface ILocation : IBase<MLocation.Response, MLocation, MLocation.FilterForm>
+    public interface ILocation : IBase<MLocation.Root, MLocation, MLocation.FilterForm>
     {
 
     }

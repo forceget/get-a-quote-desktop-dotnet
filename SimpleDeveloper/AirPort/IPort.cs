@@ -6,7 +6,7 @@ using System.Text;
 
 namespace Port
 {
-    public interface IPort : IBase<MPort.Response, MPort, MPort.FilterForm>
+    public interface IPort : IBase<MPort.Root, MPort, MPort.FilterForm>
     {
 
     }

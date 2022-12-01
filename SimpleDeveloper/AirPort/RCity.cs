@@ -1,16 +1,18 @@
 ﻿using RestSharp;
 using SimpleDeveloper.InAndOutModel;
+using State;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace City
 {
     public class RCity : ICity
     {
 
-        public ResponseBase<List<MCity.Response>> MultipleGet(MCity.FilterForm form)
+        public ResponseBase<List<MCity.Root>> MultipleGet(MCity.FilterForm form)
         {
-            ResponseBase<List<MCity.Response>> rb = new ResponseBase<List<MCity.Response>>();
+            ResponseBase<List<MCity.Root>> rb = new ResponseBase<List<MCity.Root>>();
             try
             {
                 var client = new RestClient("https://localhost:44392/api/City/MultipleGet");
@@ -22,8 +24,9 @@ namespace City
                 request.AddParameter("Offset", form.Offset);
                 request.AddParameter("Search", form.Search);
 
-                IRestResponse response = client.Execute(request);
-                var data = response.Content;
+                var response = client.Execute<MCity.Root>(request);
+                var data = response.Data.item.Select(x => x.name).ToList();
+                rb.Item = data.ToList();
 
                 return rb;
             }

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace State
 {
-    public interface IState : IBase<MState.Response, MState, MState.FilterForm>
+    public interface IState : IBase<MState.Root, MState, MState.FilterForm>
     {
 
     }

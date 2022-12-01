@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using AirPort;
+using RestSharp;
 using SimpleDeveloper.InAndOutModel;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,9 @@ namespace Port
     public class RPort : IPort
     {
 
-        public ResponseBase<List<MPort.Response>> MultipleGet(MPort.FilterForm form)
+        public ResponseBase<List<MPort.Root>> MultipleGet(MPort.FilterForm form)
         {
-            ResponseBase<List<MPort.Response>> rb = new ResponseBase<List<MPort.Response>>();
+            ResponseBase<List<MPort.Root>> rb = new ResponseBase<List<MPort.Root>>();
             try
             {
                 var client = new RestClient("https://localhost:44392/api/Port/MultipleGet");
@@ -25,8 +26,10 @@ namespace Port
                 request.AddParameter("Search", form.Search);
 
 
-                IRestResponse response = client.Execute(request);
-                var data = response.Content;
+                var response = client.Execute<MPort.Root>(request);
+                var data = response.Data.item.Select(x => x.name).ToList();
+                rb.Item = data.ToList();
+
 
                 return rb;
             }

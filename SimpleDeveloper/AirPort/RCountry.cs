@@ -1,16 +1,18 @@
-﻿using RestSharp;
+﻿using Port;
+using RestSharp;
 using SimpleDeveloper.InAndOutModel;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Country
 {
     public class RCountry : ICountry
     {
 
-        public ResponseBase<List<MCountry.Response>> MultipleGet(MCountry.FilterForm form)
+        public ResponseBase<List<MCountry.Root>> MultipleGet(MCountry.FilterForm form)
         {
-            ResponseBase<List<MCountry.Response>> rb = new ResponseBase<List<MCountry.Response>>();
+            ResponseBase<List<MCountry.Root>> rb = new ResponseBase<List<MCountry.Root>>();
             try
             {
                 var client = new RestClient("https://localhost:44392/api/Country/MultipleGet");
@@ -22,9 +24,9 @@ namespace Country
                 request.AddParameter("Offset", form.Offset);
                 request.AddParameter("Search", form.Search);
 
-                IRestResponse response = client.Execute(request);
-                var data = response.Content;
-                //rb.Item = data;
+                var response = client.Execute<MCountry.Root>(request);
+                var data = response.Data.item.Select(x => x.name).ToList();
+                rb.Item = data.ToList();
 
                 return rb;
             }
