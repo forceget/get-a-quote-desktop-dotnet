@@ -16,17 +16,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Token;
 using static Port.MPort;
 
 namespace SimpleDeveloper
 {
     public partial class Form1 : System.Windows.Forms.Form
     {
+
         public Form1()
         {
             InitializeComponent();
         }
+        private void Login(object sender, EventArgs e)
+        {
+            MToken.FilterForm formtoken= new MToken.FilterForm();
+            formtoken.Email = emailTextBox.Text;
+            formtoken.PasswordHash = passwordTextBox.Text;
 
+            var response = RToken.Login(formtoken);
+            
+            dataGridView1.DataSource = response;
+
+        }
         private void PortGet(object sender, EventArgs e)
         {
             RPort r = new RPort();
@@ -36,9 +48,8 @@ namespace SimpleDeveloper
             formPort.Sort.Column = "NAME";
             formPort.Sort.Type = "ASC";
 
-            var liste = r.MultipleGet(formPort).Item;
-
-            richTextBox1.Text = liste.ToList().ToString();
+            var data = r.MultipleGet(formPort).item;
+            dataGridView1.DataSource = data.ToList();
         }
         private void AirPortGet(object sender, EventArgs e)
         {
@@ -50,7 +61,11 @@ namespace SimpleDeveloper
             formAirPort.Sort.Type = "ASC";
 
             var data = airPort.MultipleGet(formAirPort);
-            //richTextBox1.Text = item.item.;
+
+            if (data != null)
+            {
+                dataGridView1.DataSource = data.item.ToList();
+            }
         }
         private void CountryGet(object sender, EventArgs e)
         {
@@ -61,7 +76,9 @@ namespace SimpleDeveloper
             formCountry.Sort.Column = "NAME";
             formCountry.Sort.Type = "ASC";
 
-            var liste = country.MultipleGet(formCountry).Item;
+            var data = country.MultipleGet(formCountry).item;
+            dataGridView1.DataSource = data.ToList();
+
         }
         private void StateGet(object sender, EventArgs e)
         {
@@ -72,8 +89,9 @@ namespace SimpleDeveloper
             formState.Sort.Column = "NAME";
             formState.Sort.Type = "ASC";
 
-            var liste = state.MultipleGet(formState).Item;
-            //richTextBox1.Text = liste.First();
+            var data = state.MultipleGet(formState).item;
+            dataGridView1.DataSource = data.ToList();
+
         }
         private void CityGet(object sender, EventArgs e)
         {
@@ -84,8 +102,9 @@ namespace SimpleDeveloper
             formCity.Sort.Column = "NAME";
             formCity.Sort.Type = "ASC";
 
-            var liste = city.MultipleGet(formCity);
-            //richTextBox1.Text = liste.First();
+            var data = city.MultipleGet(formCity).item;
+            dataGridView1.DataSource = data.ToList();
+
         }
         private void LocationGet(object sender, EventArgs e)
         {
@@ -97,8 +116,8 @@ namespace SimpleDeveloper
             formLocation.Sort.Type = "ASC";
             formLocation.LocationTypes = 1;
 
-            var liste = location.MultipleGet(formLocation).Item;
-            //richTextBox1.Text = liste.First();
+            var data = location.MultipleGet(formLocation).item;
+            dataGridView1.DataSource = data.ToList();
         }
         private void AmazonFulfillmentCenterGet(object sender, EventArgs e)
         {
@@ -110,8 +129,8 @@ namespace SimpleDeveloper
             formLocation.Sort.Type = "ASC";
             formLocation.LocationTypes = 1;
 
-            var liste = location.MultipleGet(formLocation).Item;
-            //richTextBox1.Text = liste.First();
+            var data = location.MultipleGet(formLocation).item;
+            dataGridView1.DataSource = data.ToList();
         }
         private void ForcegetWarehouseGet(object sender, EventArgs e)
         {
@@ -123,8 +142,8 @@ namespace SimpleDeveloper
             formLocation.Sort.Type = "ASC";
             formLocation.LocationTypes = 7;
 
-            var liste = location.MultipleGet(formLocation).Item;
-            //richTextBox1.Text = liste.First();
+            var data = location.MultipleGet(formLocation).item;
+            dataGridView1.DataSource = data.ToList();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -145,5 +164,16 @@ namespace SimpleDeveloper
 
         }
 
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        
     }
 }

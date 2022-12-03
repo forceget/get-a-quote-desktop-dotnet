@@ -11,9 +11,9 @@ namespace Port
     public class RPort : IPort
     {
 
-        public ResponseBase<List<MPort.Root>> MultipleGet(MPort.FilterForm form)
+        public MPort.Root MultipleGet(MPort.FilterForm form)
         {
-            ResponseBase<List<MPort.Root>> rb = new ResponseBase<List<MPort.Root>>();
+            MPort.Root rb = new MPort.Root();
             try
             {
                 var client = new RestClient("https://localhost:44392/api/Port/MultipleGet");
@@ -27,9 +27,8 @@ namespace Port
 
 
                 var response = client.Execute<MPort.Root>(request);
-                var data = response.Data.item.Select(x => x.name).ToList();
-                //rb.Item = data.ToList();
 
+                rb = response.Data;
 
                 return rb;
             }

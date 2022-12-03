@@ -12,7 +12,7 @@ namespace SimpleDeveloper.InAndOutModel
 
         public int Take { get; set; } = 10;
 
-        public string Search { get; set; }
+        public string Search { get; set; } = string.Empty;
     }
 
     public class MSort

@@ -1,4 +1,5 @@
-﻿using Port;
+﻿using AirPort;
+using Port;
 using RestSharp;
 using SimpleDeveloper.InAndOutModel;
 using System;
@@ -10,9 +11,9 @@ namespace Country
     public class RCountry : ICountry
     {
 
-        public ResponseBase<List<MCountry.Root>> MultipleGet(MCountry.FilterForm form)
+        public MCountry.Root MultipleGet(MCountry.FilterForm form)
         {
-            ResponseBase<List<MCountry.Root>> rb = new ResponseBase<List<MCountry.Root>>();
+            MCountry.Root rb = new MCountry.Root();
             try
             {
                 var client = new RestClient("https://localhost:44392/api/Country/MultipleGet");
@@ -25,8 +26,8 @@ namespace Country
                 request.AddParameter("Search", form.Search);
 
                 var response = client.Execute<MCountry.Root>(request);
-                var data = response.Data.item.Select(x => x.name).ToList();
-                //rb.Item = data;
+
+                rb = response.Data;
 
                 return rb;
             }

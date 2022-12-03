@@ -1,4 +1,5 @@
-﻿using RestSharp;
+﻿using AirPort;
+using RestSharp;
 using SimpleDeveloper.InAndOutModel;
 using State;
 using System;
@@ -24,10 +25,9 @@ namespace City
                 request.AddParameter("Offset", form.Offset);
                 request.AddParameter("Search", form.Search);
 
-                var response = client.Execute<MCity.Response>(request);
+                var response = client.Execute<MCity.Root>(request);
 
-                //rb = response.Data;
-
+                rb = response.Data;
 
                 return rb;
             }

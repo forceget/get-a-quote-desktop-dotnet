@@ -6,8 +6,8 @@ using System.Text;
 
 namespace State
 {
-    public interface IState : IBase<MState.Root, MState, MState.FilterForm>
+    public interface IState 
     {
-
+        MState.Root MultipleGet(MState.FilterForm form);
     }
 }

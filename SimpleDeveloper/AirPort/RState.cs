@@ -1,4 +1,5 @@
-﻿using Country;
+﻿using City;
+using Country;
 using RestSharp;
 using SimpleDeveloper.InAndOutModel;
 using System;
@@ -10,9 +11,9 @@ namespace State
     public class RState : IState
     {
 
-        public ResponseBase<List<MState.Root>> MultipleGet(MState.FilterForm form)
+        public MState.Root MultipleGet(MState.FilterForm form)
         {
-            ResponseBase<List<MState.Root>> rb = new ResponseBase<List<MState.Root>>();
+            MState.Root rb = new MState.Root();
             try
             {
                 var client = new RestClient("https://localhost:44392/api/State/MultipleGet");
@@ -25,9 +26,8 @@ namespace State
                 request.AddParameter("Search", form.Search);
 
                 var response = client.Execute<MState.Root>(request);
-                var data = response.Data.item.Select(x => x.name).ToList();
-                //rb.Item = data.ToList();
 
+                rb = response.Data;
 
                 return rb;
             }

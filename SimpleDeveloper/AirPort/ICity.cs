@@ -6,8 +6,8 @@ using System.Text;
 
 namespace City
 {
-    public interface ICity : IBase<MCity.Response, MCity, MCity.FilterForm>
+    public interface ICity 
     {
-
+        MCity.Root MultipleGet(MCity.FilterForm form);
     }
 }

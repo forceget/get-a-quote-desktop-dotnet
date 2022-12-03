@@ -10,9 +10,9 @@ namespace Location
     public class RLocation : ILocation
     {
 
-        public ResponseBase<List<MLocation.Root>> MultipleGet(MLocation.FilterForm form)
+        public MLocation.Root MultipleGet(MLocation.FilterForm form)
         {
-            ResponseBase<List<MLocation.Root>> rb = new ResponseBase<List<MLocation.Root>>();
+            MLocation.Root rb = new MLocation.Root();
             try
             {
                 var client = new RestClient("https://localhost:44392/api/Location/Search");
@@ -26,8 +26,9 @@ namespace Location
                 request.AddParameter("Search", form.Search);
 
                 var response = client.Execute<MLocation.Root>(request);
-                var data = response.Data.item.Select(x => x.name).ToList();
-                //rb.Item = data;
+
+                rb = response.Data;
+
                 return rb;
             }
             catch (Exception ex)

@@ -6,8 +6,8 @@ using System.Text;
 
 namespace Location
 {
-    public interface ILocation : IBase<MLocation.Root, MLocation, MLocation.FilterForm>
+    public interface ILocation 
     {
-
+        MLocation.Root MultipleGet(MLocation.FilterForm form);
     }
 }

@@ -1,13 +1,13 @@
-﻿using Port;
+﻿using Token;
 using SimpleDeveloper.InAndOutModel;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace Port
+namespace Token
 {
-    public interface IPort 
+    public interface IToken
     {
-        MPort.Root MultipleGet(MPort.FilterForm form);
+        MToken.Root Login(MToken.FilterForm form);
     }
 }
