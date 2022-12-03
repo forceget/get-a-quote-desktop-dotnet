@@ -22,7 +22,7 @@ namespace Token
             MToken.Root rb = new MToken.Root();
             try
             {
-                var request = new RestRequest();
+                var request = new RestRequest(Method.POST);
                 request.AddParameter("Email", form.Email);
                 request.AddParameter("Password", form.PasswordHash);
 

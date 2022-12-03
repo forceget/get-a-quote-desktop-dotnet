@@ -21,7 +21,7 @@ namespace AirPort
             MAirPort.Root rb = new MAirPort.Root();
             try
             {
-                var request = new RestRequest();
+                var request = new RestRequest(Method.POST);
                 request.AddParameter("Sort.Column", form.Sort.Column);
                 request.AddParameter("Take", form.Take);
                 request.AddParameter("Sort.Type", form.Sort.Type);
