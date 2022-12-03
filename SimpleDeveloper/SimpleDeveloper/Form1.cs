@@ -67,10 +67,7 @@ namespace SimpleDeveloper
             {
                 dataGridView1.DataSource = data.item.ToList();
             }
-            //else
-            //{
-            //    dataGridView1.DataSource = "Lütfen giriş yapınız";
-            //}
+           
         }
         private void CountryGet(object sender, EventArgs e)
         {
@@ -163,11 +160,6 @@ namespace SimpleDeveloper
             var item = airPort.MultipleGet(formAirPort);
 
         }
-        private void panelShow(object sender, EventArgs e)
-        {
-            panel3.Show();
-        }
-
         private void Form1_Load(object sender, EventArgs e)
         {
 
