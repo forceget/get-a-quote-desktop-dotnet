@@ -56,6 +56,10 @@ namespace SimpleDeveloper
             {
                 dataGridView1.DataSource = data.item.ToList();
             }
+            //else
+            //{
+            //    dataGridView1.DataSource = "Lütfen giriş yapınız";
+            //}
         }
         private void CountryGet(object sender, EventArgs e)
         {
@@ -164,6 +168,9 @@ namespace SimpleDeveloper
 
         }
 
-        
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
