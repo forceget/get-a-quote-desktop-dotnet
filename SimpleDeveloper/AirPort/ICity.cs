@@ -6,7 +6,7 @@ using System.Text;
 
 namespace City
 {
-    public interface ICity : IBase<MCity.Root, MCity, MCity.FilterForm>
+    public interface ICity : IBase<MCity.Response, MCity, MCity.FilterForm>
     {
 
     }

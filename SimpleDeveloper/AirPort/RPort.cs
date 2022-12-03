@@ -28,7 +28,7 @@ namespace Port
 
                 var response = client.Execute<MPort.Root>(request);
                 var data = response.Data.item.Select(x => x.name).ToList();
-                rb.Item = data.ToList();
+                //rb.Item = data.ToList();
 
 
                 return rb;

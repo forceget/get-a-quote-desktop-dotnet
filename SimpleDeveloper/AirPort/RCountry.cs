@@ -26,7 +26,7 @@ namespace Country
 
                 var response = client.Execute<MCountry.Root>(request);
                 var data = response.Data.item.Select(x => x.name).ToList();
-                rb.Item = data.ToList();
+                //rb.Item = data;
 
                 return rb;
             }

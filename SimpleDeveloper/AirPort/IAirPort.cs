@@ -6,8 +6,8 @@ using System.Text;
 
 namespace AirPort
 {
-    public interface IAirPort : IBase<MAirPort.Root, MAirPort, MAirPort.FilterForm>
+    public interface IAirPort 
     {
-
+        MAirPort.Root MultipleGet(MAirPort.FilterForm form);
     }
 }

@@ -5,7 +5,7 @@ VisualStudioVersion = 17.4.33110.190
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimpleDeveloperExampleForm", "SimpleDeveloper\SimpleDeveloperExampleForm.csproj", "{DDB8710A-C296-4C89-8FDA-8545C1476BC4}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleDeveloper", "AirPort\SimpleDeveloper.csproj", "{29FBED2D-EBC5-45FD-A4BE-E831599F5A8A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Forceget.Apilibrary", "AirPort\Forceget.Apilibrary.csproj", "{29FBED2D-EBC5-45FD-A4BE-E831599F5A8A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

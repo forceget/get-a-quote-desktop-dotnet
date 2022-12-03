@@ -3,6 +3,7 @@ using RestSharp;
 using RestSharp.Serialization.Json;
 using SimpleDeveloper.InAndOutModel;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.Metadata;
@@ -13,9 +14,9 @@ namespace AirPort
     public class RAirPort : IAirPort
     {
 
-        public ResponseBase<List<MAirPort.Root>> MultipleGet(MAirPort.FilterForm form)
+        public MAirPort.Root MultipleGet(MAirPort.FilterForm form)
         {
-            ResponseBase<List<MAirPort.Root>> rb = new ResponseBase<List<MAirPort.Root>>();
+            MAirPort.Root rb = new MAirPort.Root();
             try
             {
                 var client = new RestClient("https://localhost:44392/api/AirPort/MultipleGet");
@@ -28,8 +29,8 @@ namespace AirPort
                 request.AddParameter("Search", form.Search);
 
                 var response = client.Execute<MAirPort.Root>(request);
-                var data = response.Data.item.Select(x => x.name).ToList();
-                rb.Item = data.ToList();
+                
+                rb = response.Data;
 
                 return rb;
             }
@@ -39,6 +40,5 @@ namespace AirPort
                 throw ex;
             }
         }
-
     }
 }

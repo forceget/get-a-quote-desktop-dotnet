@@ -12,7 +12,7 @@ namespace SimpleDeveloper.InAndOutModel
         public string StatusText { get; set; }
 
         public List<string> StatusTexts { get; set; } = new List<string>();
-        public List<string> Item { get; set; }
+        public T Item { get; set; }
 
         public dynamic Total { get; set; }
 

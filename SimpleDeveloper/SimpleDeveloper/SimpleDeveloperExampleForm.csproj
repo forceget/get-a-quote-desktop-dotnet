@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AirPort\SimpleDeveloper.csproj" />
+    <ProjectReference Include="..\AirPort\Forceget.Apilibrary.csproj" />
   </ItemGroup>
 
 </Project>

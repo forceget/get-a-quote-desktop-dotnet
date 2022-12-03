@@ -7,12 +7,12 @@ using System.Linq;
 
 namespace City
 {
-    public class RCity : ICity
+    public class RCity 
     {
 
-        public ResponseBase<List<MCity.Root>> MultipleGet(MCity.FilterForm form)
+        public MCity.Root MultipleGet(MCity.FilterForm form)
         {
-            ResponseBase<List<MCity.Root>> rb = new ResponseBase<List<MCity.Root>>();
+            MCity.Root rb = new MCity.Root();
             try
             {
                 var client = new RestClient("https://localhost:44392/api/City/MultipleGet");
@@ -24,9 +24,10 @@ namespace City
                 request.AddParameter("Offset", form.Offset);
                 request.AddParameter("Search", form.Search);
 
-                var response = client.Execute<MCity.Root>(request);
-                var data = response.Data.item.Select(x => x.name).ToList();
-                rb.Item = data.ToList();
+                var response = client.Execute<MCity.Response>(request);
+
+                //rb = response.Data;
+
 
                 return rb;
             }

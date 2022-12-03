@@ -60,18 +60,17 @@ namespace AirPort
             public List<string> CountryCodes { get; set; }
 
         }
-
+       
         public class Response
         {
-            public List<string> Data { get; set; }
+            public Root Data { get; set; }
             public int Status { get; set; } = 200;
             public List<string> StatusTexts { get; set; } = new List<string>();
             public dynamic Total { get; set; }
-
             public long Count { get; set; } = 0;
 
         }
-        
+
         #region root
         public class City
         {

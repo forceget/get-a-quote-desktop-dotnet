@@ -26,7 +26,7 @@ namespace State
 
                 var response = client.Execute<MState.Root>(request);
                 var data = response.Data.item.Select(x => x.name).ToList();
-                rb.Item = data.ToList();
+                //rb.Item = data.ToList();
 
 
                 return rb;

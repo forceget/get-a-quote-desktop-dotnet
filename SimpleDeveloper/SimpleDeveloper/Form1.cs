@@ -37,7 +37,8 @@ namespace SimpleDeveloper
             formPort.Sort.Type = "ASC";
 
             var liste = r.MultipleGet(formPort).Item;
-            richTextBox1.Text = liste.First();
+
+            richTextBox1.Text = liste.ToList().ToString();
         }
         private void AirPortGet(object sender, EventArgs e)
         {
@@ -48,10 +49,8 @@ namespace SimpleDeveloper
             formAirPort.Sort.Column = "NAME";
             formAirPort.Sort.Type = "ASC";
 
-            var item = airPort.MultipleGet(formAirPort).Item;
-
-            comboBox1.Items.Clear();
-            comboBox1.Items.AddRange(new string[] { item.ToString() });
+            var data = airPort.MultipleGet(formAirPort);
+            //richTextBox1.Text = item.item.;
         }
         private void CountryGet(object sender, EventArgs e)
         {
@@ -63,7 +62,6 @@ namespace SimpleDeveloper
             formCountry.Sort.Type = "ASC";
 
             var liste = country.MultipleGet(formCountry).Item;
-            richTextBox1.Text = liste.First();
         }
         private void StateGet(object sender, EventArgs e)
         {
@@ -75,7 +73,7 @@ namespace SimpleDeveloper
             formState.Sort.Type = "ASC";
 
             var liste = state.MultipleGet(formState).Item;
-            richTextBox1.Text = liste.First();
+            //richTextBox1.Text = liste.First();
         }
         private void CityGet(object sender, EventArgs e)
         {
@@ -86,8 +84,8 @@ namespace SimpleDeveloper
             formCity.Sort.Column = "NAME";
             formCity.Sort.Type = "ASC";
 
-            var liste = city.MultipleGet(formCity).Item;
-            richTextBox1.Text = liste.First();
+            var liste = city.MultipleGet(formCity);
+            //richTextBox1.Text = liste.First();
         }
         private void LocationGet(object sender, EventArgs e)
         {
@@ -100,7 +98,7 @@ namespace SimpleDeveloper
             formLocation.LocationTypes = 1;
 
             var liste = location.MultipleGet(formLocation).Item;
-            richTextBox1.Text = liste.First();
+            //richTextBox1.Text = liste.First();
         }
         private void AmazonFulfillmentCenterGet(object sender, EventArgs e)
         {
@@ -113,7 +111,7 @@ namespace SimpleDeveloper
             formLocation.LocationTypes = 1;
 
             var liste = location.MultipleGet(formLocation).Item;
-            richTextBox1.Text = liste.First();
+            //richTextBox1.Text = liste.First();
         }
         private void ForcegetWarehouseGet(object sender, EventArgs e)
         {
@@ -126,7 +124,7 @@ namespace SimpleDeveloper
             formLocation.LocationTypes = 7;
 
             var liste = location.MultipleGet(formLocation).Item;
-            richTextBox1.Text = liste.First();
+            //richTextBox1.Text = liste.First();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -138,9 +136,14 @@ namespace SimpleDeveloper
             formAirPort.Sort.Column = "NAME";
             formAirPort.Sort.Type = "ASC";
 
-            var item = airPort.MultipleGet(formAirPort).Item;
+            var item = airPort.MultipleGet(formAirPort);
 
-            //comboBox1.Items.AddRange(new string[] { item.ToString() });
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
