@@ -6,8 +6,8 @@ using System.Text;
 
 namespace AutomaticPricing
 {
-    public interface IAutomaticPricing : IBase<MAutomaticPricing.Response, MAutomaticPricing, MAutomaticPricing.FilterForm>
+    public interface IAutomaticPricing 
     {
-
+        MAutomaticPricing.Root GetAQuate(MAutomaticPricing.FilterForm form);
     }
 }

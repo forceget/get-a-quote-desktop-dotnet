@@ -1,4 +1,5 @@
 ﻿using AirPort;
+using AutomaticPricing;
 using City;
 using Country;
 using Location;
@@ -28,6 +29,16 @@ namespace SimpleDeveloper
             
             dataGridView1.DataSource = response;
 
+        }
+        private void GetAQuate(object sender, EventArgs e)
+        {
+            RAutomaticPricing r = new RAutomaticPricing();
+            MAutomaticPricing.FilterForm formGetAQuate = new MAutomaticPricing.FilterForm();
+
+
+            var data = r.GetAQuate(formGetAQuate);
+            dataGridView1.DataSource = data.statusText.ToString();
+            //dataGridView1.DataSource = data.ToList();
         }
         private void PortGet(object sender, EventArgs e)
         {
@@ -151,6 +162,10 @@ namespace SimpleDeveloper
 
             var item = airPort.MultipleGet(formAirPort);
 
+        }
+        private void panelShow(object sender, EventArgs e)
+        {
+            panel3.Show();
         }
 
         private void Form1_Load(object sender, EventArgs e)

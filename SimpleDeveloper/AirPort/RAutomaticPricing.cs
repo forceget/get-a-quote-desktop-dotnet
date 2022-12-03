@@ -1,4 +1,6 @@
 ﻿using AutomaticPricing;
+using City;
+using Forceget.Apilibrary;
 using RestSharp;
 using SimpleDeveloper.InAndOutModel;
 using System;
@@ -9,25 +11,43 @@ namespace State
     public class RAutomaticPricing : IAutomaticPricing
     {
 
-        public ResponseBase<List<MAutomaticPricing.Response>> MultipleGet(MAutomaticPricing.FilterForm form)
+        public MAutomaticPricing.Root GetAQuate(MAutomaticPricing.FilterForm form)
         {
-            ResponseBase<List<MAutomaticPricing.Response>> rb = new ResponseBase<List<MAutomaticPricing.Response>>();
+
+            MAutomaticPricing.Root rb = new MAutomaticPricing.Root();
             try
             {
-                var client = new RestClient("https://localhost:44392/api/AutomaticPricing/GetAQuote");
                 var request = new RestRequest(Method.POST);
-                request.AddHeader("Authorization", "Bearer " + "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1laWQiOiJiNDhjMjk0ZS01ODdjLTQ2YjUtOTk5ZC00NjQ3MDgwY2YzM2EiLCJqdGkiOiIyMWM3YWE3Mi00ZGQ0LTRkYTMtYTExOS1lMzJjNzAyYzc4MzAiLCJuYmYiOjE2Njg4NDk5NDIsImV4cCI6MTY3MTQ0MTk0MiwiaXNzIjoiaHR0cHM6Ly9mb3JjZWdldC5jb20vIiwiYXVkIjoiZGV2In0.wb5OGXbVHy6m2038VUaCtcAnWwjS4ftT2eD89VuOxLU");
-                request.AddParameter("Sort.Column", form.Sort.Column);
-                request.AddParameter("Take", form.Take);
-                request.AddParameter("Sort.Type", form.Sort.Type);
-                request.AddParameter("Offset", form.Offset);
-                request.AddParameter("Search", form.Search);
+                request.AlwaysMultipartFormData = true;
+                request.AddParameter("ToLocationCountryId", "cd4928df-b552-4c56-8601-e861aac3a923");
+                request.AddParameter("LastName", "Yolga");
+                request.AddParameter("ProductReadyDate", "12/3/2022 12:00:00 AM");
+                request.AddParameter("FromType", "Factory/Warehouse");
+                request.AddParameter("ProductAmount", "1000");
+                request.AddParameter("CompanyName", "Navimod");
+                request.AddParameter("ToLocationId", "160bdff4-e11c-4e01-ad8f-a347debefc3f");
+                request.AddParameter("Packages", "");
+                request.AddParameter("ShipmentTypeId", "");
+                request.AddParameter("FreightosNumber", "");
+                request.AddParameter("Containers", "");
+                request.AddParameter("FromLocationCountryId", "4f1799dd-8bf5-4fe1-a5f0-747ca4780319");
+                request.AddParameter("ToType", "Amazon Fulfillment Center");
+                request.AddParameter("AffilatePartnerId", "");
+                request.AddParameter("PhoneNumber", "11");
+                request.AddParameter("CompanyId", "");
+                request.AddParameter("CustomsClearance", "2");
+                request.AddParameter("ShipmentLoadType", "2");
+                request.AddParameter("Insurance", "2");
+                request.AddParameter("FromLocationId", "66f3e9ab-b8a4-4d1a-acc4-41d20cd326d5");
+                request.AddParameter("Id", "");
+                request.AddParameter("FirstName", "Nihan");
+                request.AddParameter("Email", "nihanyolga84@gmail.com");
+                request.AddParameter("Contains", "");
 
-                IRestResponse response = client.Execute(request);
-                var data = response.Content;
-                //rb.Item = data.ToString();
+                var response = RNetworkingOperation.Post<MAutomaticPricing.Root>("https://localhost:44392/api/AutomaticPricing/GetAQuote", request);
 
-                return rb;
+                return response;
+
             }
             catch (Exception ex)
             {
