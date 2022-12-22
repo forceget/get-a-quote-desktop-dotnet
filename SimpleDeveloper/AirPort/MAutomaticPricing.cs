@@ -14,34 +14,50 @@ namespace AutomaticPricing
         public class Form
         {
             public string Id { get; set; }
+            public string CompanyId { get; set; }
+            public string FirstName { get; set; }
+            public string LastName { get; set; }
+            public string CompanyName { get; set; }
+            public string Email { get; set; }
+            public string PhoneNumber { get; set; }
+            public string FromType { get; set; }
+            public string ToType { get; set; }
+            public string FromLocationId { get; set; }
+            public string ToLocationId { get; set; }
+            public string FromLocationCountryId { get; set; }
+            public string ToLocationCountryId { get; set; }
+            public string ProductAmount { get; set; }
+            public int ShipmentLoadType { get; set; } 
+            public DateTime? ProductReadyDate { get; set; }
+            public List<FAutomaticPricingPackage> Packages { get; set; }
+            public List<FAutomaticPricingContainer> Containers { get; set; }
+            public int HazardousGoods { get; set; }
+            public string AffilatePartnerId { get; set; }
+            public int Insurance { get; set; }
+            public int CustomsClearance { get; set; }
 
-            public string Name { get; set; }
-
-            public string CountryId { get; set; }
-
-            public string CityId { get; set; }
-
-            public string StateId { get; set; }
-
-            public string CountryName { get; set; }
-
-            public string CountryCode { get; set; }
-
-            public string CityName { get; set; }
-
-            public string Type { get; set; }
-
-            public string Code { get; set; }
-
-            public double? Latitude { get; set; }
-
-            public double? Longitude { get; set; }
-            public int? LocationTypeId { get; set; }
-            public string ZipCode { get; set; }
-            public string Address { get; set; }
+        }
+        public class FAutomaticPricingPackage
+        {
+            public string PackageTypeId { get; set; }
+            public string TotalUnit { get; set; }
+            public string Length { get; set; }
+            public string Width { get; set; }
+            public string Height { get; set; }
+            public string Weight { get; set; }
+            public string MetricType { get; set; }
+        }
+        public class FAutomaticPricingContainer
+        {
+            public string TotalUnit { get; set; }
+            public string Size { get; set; }
 
         }
 
+        public class FAutomaticPricingContain
+        {
+            public string Item { get; set; }
+        }
         public class FilterForm:MFilterBase 
         {
             public string FirstName { get; set; }

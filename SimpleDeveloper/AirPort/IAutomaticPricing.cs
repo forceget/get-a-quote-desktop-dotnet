@@ -8,6 +8,6 @@ namespace AutomaticPricing
 {
     public interface IAutomaticPricing 
     {
-        MAutomaticPricing.Root GetAQuate(MAutomaticPricing.FilterForm form);
+        MAutomaticPricing.Root GetAQuate(MAutomaticPricing.Form form);
     }
 }

@@ -22,7 +22,10 @@ namespace Location
                 request.AddParameter("Take", form.Take);
                 request.AddParameter("Sort.Type", form.Sort.Type);
                 request.AddParameter("Offset", form.Offset);
-                request.AddParameter("LocationTypes", form.LocationTypes);
+                foreach (var item in form.LocationType)
+                {
+                    request.AddParameter("LocationTypes", item);
+                }
                 request.AddParameter("Search", form.Search);
 
                 var response = RNetworkingOperation.Post<MLocation.Root>("https://localhost:44392/api/Location/Search", request);

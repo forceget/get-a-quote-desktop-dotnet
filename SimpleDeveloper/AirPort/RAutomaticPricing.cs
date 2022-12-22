@@ -11,7 +11,7 @@ namespace State
     public class RAutomaticPricing : IAutomaticPricing
     {
 
-        public MAutomaticPricing.Root GetAQuate(MAutomaticPricing.FilterForm form)
+        public MAutomaticPricing.Root GetAQuate(MAutomaticPricing.Form form)
         {
 
             MAutomaticPricing.Root rb = new MAutomaticPricing.Root();
@@ -19,30 +19,30 @@ namespace State
             {
                 var request = new RestRequest(Method.POST);
                 request.AlwaysMultipartFormData = true;
-                request.AddParameter("ToLocationCountryId", "cd4928df-b552-4c56-8601-e861aac3a923");
-                request.AddParameter("LastName", "Yolga");
-                request.AddParameter("ProductReadyDate", "12/3/2022 12:00:00 AM");
-                request.AddParameter("FromType", "Factory/Warehouse");
-                request.AddParameter("ProductAmount", "1000");
-                request.AddParameter("CompanyName", "Navimod");
-                request.AddParameter("ToLocationId", "160bdff4-e11c-4e01-ad8f-a347debefc3f");
-                request.AddParameter("Packages", "");
-                request.AddParameter("ShipmentTypeId", "");
-                request.AddParameter("FreightosNumber", "");
-                request.AddParameter("Containers", "");
-                request.AddParameter("FromLocationCountryId", "4f1799dd-8bf5-4fe1-a5f0-747ca4780319");
-                request.AddParameter("ToType", "Amazon Fulfillment Center");
-                request.AddParameter("AffilatePartnerId", "");
+                request.AddParameter("FromLocationId", form.FromLocationId);
+                request.AddParameter("FromLocationCountryId", form.FromLocationCountryId);
+                request.AddParameter("FromType", form.FromType);
+
+                request.AddParameter("ToLocationId", form.ToLocationId);
+                request.AddParameter("ToLocationCountryId", form.ToLocationCountryId);
+                request.AddParameter("ToType", form.ToType);
+
+                request.AddParameter("Packages", form.Packages);
+                request.AddParameter("Containers", form.Containers);
+                request.AddParameter("ProductAmount", form.ProductAmount);
+                request.AddParameter("ProductReadyDate", form.ProductReadyDate);
+                request.AddParameter("ShipmentLoadType", form.ShipmentLoadType);
+                request.AddParameter("CustomsClearance", form.CustomsClearance);
+                request.AddParameter("Insurance", form.Insurance);
+
+                request.AddParameter("Email", "analyn@titansourcing.com");
+                request.AddParameter("FirstName", "analyn");
+                request.AddParameter("LastName", "titan");
+                request.AddParameter("CompanyName", "TitanSourcing");
+                request.AddParameter("AffilatePartnerId", "b592813a-df2a-4f66-aa66-5d80384f7053");
                 request.AddParameter("PhoneNumber", "11");
-                request.AddParameter("CompanyId", "");
-                request.AddParameter("CustomsClearance", "2");
-                request.AddParameter("ShipmentLoadType", "2");
-                request.AddParameter("Insurance", "2");
-                request.AddParameter("FromLocationId", "66f3e9ab-b8a4-4d1a-acc4-41d20cd326d5");
-                request.AddParameter("Id", "");
-                request.AddParameter("FirstName", "Nihan");
-                request.AddParameter("Email", "nihanyolga84@gmail.com");
-                request.AddParameter("Contains", "");
+                request.AddParameter("CompanyId", "0c79f71f-ec98-4b8d-9a9b-af9bf6a38ba5");
+
 
                 var response = RNetworkingOperation.Post<MAutomaticPricing.Root>("https://localhost:44392/api/AutomaticPricing/GetAQuote", request);
 
