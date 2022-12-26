@@ -15,6 +15,7 @@ using Token;
 using static AirPort.MAirPort;
 using static AutomaticPricing.MAutomaticPricing;
 using static Port.MPort;
+using static System.Collections.Specialized.BitVector32;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SimpleDeveloper
@@ -28,7 +29,7 @@ namespace SimpleDeveloper
         }
         private void Login(object sender, EventArgs e)
         {
-            MToken.FilterForm formtoken= new MToken.FilterForm();
+            MToken.FilterForm formtoken = new MToken.FilterForm();
             formtoken.Email = emailTextBox.Text;
             formtoken.PasswordHash = passwordTextBox.Text;
 
@@ -36,7 +37,7 @@ namespace SimpleDeveloper
 
             RCountry country = new RCountry();
             MCountry.FilterForm formCountry = new MCountry.FilterForm();
-            formCountry.Take = 10000;
+            formCountry.Take = 1000;
             formCountry.Offset = 0;
             formCountry.Sort.Column = "NAME";
             formCountry.Sort.Type = "ASC";
@@ -45,39 +46,30 @@ namespace SimpleDeveloper
             foreach (var items in data)
             {
                 comboBox3.Items.Add(new { Text = items.name, Value = items.id });
-                comboBox3.DisplayMember= "Text";
-
-                comboBox6.Items.Add(new { Text = items.name, Value = items.id });
-                comboBox6.DisplayMember = "Text";
+                comboBox3.DisplayMember = "Text";
             }
 
-             dataGridView1.DataSource = response;
-
-            RLocation location = new RLocation();
-            MLocation.FilterForm formLocation = new MLocation.FilterForm();
-            formLocation.Take = 10;
-            formLocation.Offset = 0;
-            formLocation.Sort.Column = "NAME";
-            formLocation.Sort.Type = "ASC";
-            List<int> LocationTyp = new List<int>() { 1, 2, 3, 5, 6, 7, 8, 9, 10, 11, 12 };
-            formLocation.LocationType = LocationTyp;
-
-            var dataLocation = location.MultipleGet(formLocation).item;
-            foreach (var items in dataLocation)
-            {
-                comboBox4.Items.Add(new { Text = items.name, Value = items.id });
-                comboBox4.DisplayMember = "Text";
-
-                comboBox7.Items.Add(new { Text = items.name, Value = items.id });
-                comboBox7.DisplayMember = "Text";
-            }
-             dataGridView1.DataSource = response;
+            dataGridView1.DataSource = response;
 
         }
         private void GetAQuate(object sender, EventArgs e)
         {
             RAutomaticPricing r = new RAutomaticPricing();
             MAutomaticPricing.Form formGetAQuate = new MAutomaticPricing.Form();
+            MToken.FilterForm formtoken = new MToken.FilterForm();
+            formtoken.Email = emailTextBox.Text;
+            formtoken.PasswordHash = passwordTextBox.Text;
+
+            var response = RToken.Login(formtoken);
+
+            formGetAQuate.Email = emailTextBox.Text;
+            formGetAQuate.FirstName = response.item.firstName;
+            formGetAQuate.LastName = response.item.lastName;
+            formGetAQuate.PhoneNumber = response.item.phoneNumber;
+            formGetAQuate.CompanyName = response.item.details.Select(x => x.companyInfo.name).FirstOrDefault();
+            formGetAQuate.CompanyId = response.item.details.Select(x => x.companyId).FirstOrDefault();
+
+
             formGetAQuate.FromType = comboBox2.Text.ToString();
             formGetAQuate.FromLocationCountryId = (comboBox3.SelectedItem as dynamic).Value;
             formGetAQuate.FromLocationId = (comboBox4.SelectedItem as dynamic).Value;
@@ -87,32 +79,62 @@ namespace SimpleDeveloper
             formGetAQuate.ToLocationId = (comboBox7.SelectedItem as dynamic).Value;
             if (formGetAQuate.FromType == "Port/Airport")
             {
-                    formGetAQuate.Packages.Add(new FAutomaticPricingPackage
-                    {
-                        Height = textBox3.Text,
-                        Length = textBox1.Text,
-                        MetricType = "Metric",
-                        PackageTypeId = "3",
-                        TotalUnit = textBox4.Text,
-                        Weight = textBox5.Text,
-                        Width = textBox2.Text
-                    });
+                formGetAQuate.Packages = new List<FAutomaticPricingPackage>();
+                formGetAQuate.Packages.Add(new FAutomaticPricingPackage
+                {
+                    Height = textBox3.Text,
+                    Length = textBox1.Text,
+                    MetricType = "Metric",
+                    PackageTypeId = "3",
+                    TotalUnit = textBox4.Text,
+                    Weight = textBox5.Text,
+                    Width = textBox2.Text
+                });
+                formGetAQuate.ShipmentLoadType = 1;
             }
             else
             {
-                
+                formGetAQuate.Containers = new List<FAutomaticPricingContainer>();
                 formGetAQuate.Containers.Add(new FAutomaticPricingContainer
                 {
-                     TotalUnit= textBox7.Text,
-                     Size= comboBox8.Text.ToString(),
+                    TotalUnit = textBox7.Text,
+                    Size = comboBox8.Text.ToString(),
                 });
+                formGetAQuate.ShipmentLoadType = 2;
             }
 
             formGetAQuate.ProductAmount = textBox6.Text;
-            formGetAQuate.ProductReadyDate= DateTime.Now;
-            formGetAQuate.ShipmentLoadType = 2;
-            formGetAQuate.Insurance = 2;
-            formGetAQuate.CustomsClearance = 2;
+            formGetAQuate.ProductReadyDate = monthCalendar1.SelectionRange.Start.ToString();
+            if (checkBox1.Checked == true)
+            {
+                formGetAQuate.HazardousGoods = 1;
+
+            }
+            else
+            {
+                formGetAQuate.HazardousGoods = 2;
+
+            }
+            if (checkBox2.Checked == true)
+            {
+                formGetAQuate.Insurance = 1;
+
+            }
+            else
+            {
+                formGetAQuate.Insurance = 2;
+
+            }
+            if (checkBox3.Checked == true)
+            {
+                formGetAQuate.CustomsClearance = 1;
+
+            }
+            else
+            {
+                formGetAQuate.CustomsClearance = 2;
+
+            }
 
             var data = r.GetAQuate(formGetAQuate);
             dataGridView1.DataSource = data.statusText.ToString();
@@ -145,7 +167,7 @@ namespace SimpleDeveloper
             {
                 dataGridView1.DataSource = data.item.ToList();
             }
-           
+
         }
         private void CountryGet(object sender, EventArgs e)
         {
@@ -247,6 +269,7 @@ namespace SimpleDeveloper
 
             var item = airPort.MultipleGet(formAirPort);
 
+
         }
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -303,6 +326,8 @@ namespace SimpleDeveloper
             {
                 panel3.Visible = true;
             }
+
+
         }
 
         private void button11_Click(object sender, EventArgs e)
@@ -329,7 +354,7 @@ namespace SimpleDeveloper
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void Port(object sender, EventArgs e)
@@ -339,11 +364,41 @@ namespace SimpleDeveloper
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
         {
+            
 
         }
 
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
+            MToken.FilterForm formtoken = new MToken.FilterForm();
+            formtoken.Email = emailTextBox.Text;
+            formtoken.PasswordHash = passwordTextBox.Text;
+
+            var response = RToken.Login(formtoken);
+
+            RLocation location = new RLocation();
+            MLocation.FilterForm formLocation = new MLocation.FilterForm();
+            formLocation.Take = 100000;
+            formLocation.Offset = 0;
+            formLocation.Sort.Column = "NAME";
+            formLocation.Sort.Type = "ASC";
+            formLocation.CountryId = (comboBox3.SelectedItem as dynamic).Value;
+            if (comboBox2.Text.ToString() == "Port/Airport")
+            {
+                List<int> LocationTypePortAirport = new List<int>() { 8, 9 };
+                formLocation.LocationType = LocationTypePortAirport;
+            }
+            else if (comboBox2.Text.ToString() == "Factory/Warehouse")
+            {
+                List<int> LocationTypeAmazon = new List<int>() { 1, 2, 3, 5, 6, 7, 12 };
+                formLocation.LocationType = LocationTypeAmazon;
+            }
+            var dataLocation = location.MultipleGet(formLocation).item;
+            foreach (var items in dataLocation)
+            {
+                comboBox4.Items.Add(new { Text = items.name, Value = items.id });
+                comboBox4.DisplayMember = "Text";
+            }
 
         }
 
@@ -395,7 +450,7 @@ namespace SimpleDeveloper
 
         private void button22_Click(object sender, EventArgs e)
         {
-          
+
         }
 
         private void button13_Click(object sender, EventArgs e)
@@ -461,12 +516,92 @@ namespace SimpleDeveloper
 
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
+            MToken.FilterForm formtoken = new MToken.FilterForm();
+            formtoken.Email = emailTextBox.Text;
+            formtoken.PasswordHash = passwordTextBox.Text;
 
+            var response = RToken.Login(formtoken);
+
+            RCountry country = new RCountry();
+            MCountry.FilterForm formCountry = new MCountry.FilterForm();
+            formCountry.Take = 1000;
+            formCountry.Offset = 0;
+            formCountry.Sort.Column = "NAME";
+            formCountry.Sort.Type = "ASC";
+            if (comboBox5.Text.ToString() == "Amazon Fulfillment Center")
+            {
+                comboBox6.Items.Add(new { Text = "United States", Value = "cd4928df-b552-4c56-8601-e861aac3a923" });
+                comboBox6.DisplayMember = "Text";
+            }
+            else if (comboBox5.Text.ToString() == "Forceget Warehouse")
+            {
+                comboBox6.Items.Add(new { Text = "United States", Value = "cd4928df-b552-4c56-8601-e861aac3a923" });
+                comboBox6.Items.Add(new { Text = "Canada", Value = "c1b56132-9ab5-4515-9e70-40058a4819f9" });
+                comboBox6.DisplayMember = "Text";
+
+            }
+            else if (comboBox5.Text.ToString() == "Business Address")
+            {
+                var data = country.MultipleGet(formCountry).item;
+                foreach (var items in data)
+                {
+                    comboBox6.Items.Add(new { Text = items.name, Value = items.id });
+                    comboBox6.DisplayMember = "Text";
+                }
+            }
+            else if (comboBox5.Text.ToString() == "Port/Airport")
+            {
+                var data = country.MultipleGet(formCountry).item;
+                foreach (var items in data)
+                {
+                    comboBox6.Items.Add(new { Text = items.name, Value = items.id });
+                    comboBox6.DisplayMember = "Text";
+                }
+            }
         }
 
         private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
         {
+            MToken.FilterForm formtoken = new MToken.FilterForm();
+            formtoken.Email = emailTextBox.Text;
+            formtoken.PasswordHash = passwordTextBox.Text;
 
+            var response = RToken.Login(formtoken);
+
+            RLocation location = new RLocation();
+            MLocation.FilterForm formLocation = new MLocation.FilterForm();
+            formLocation.Take = 10000;
+            formLocation.Offset = 0;
+            formLocation.Sort.Column = "NAME";
+            formLocation.Sort.Type = "ASC";
+            formLocation.CountryId = (comboBox6.SelectedItem as dynamic).Value;
+
+            if (comboBox5.Text.ToString() == "Amazon Fulfillment Center")
+            {
+                List<int> LocationTypePortAirport = new List<int>() { 1 };
+                formLocation.LocationType = LocationTypePortAirport;
+            }
+            else if (comboBox5.Text.ToString() == "Forceget Warehouse")
+            {
+                List<int> LocationTypeForcegetWarehouse = new List<int>() { 1, 7 };
+                formLocation.LocationType = LocationTypeForcegetWarehouse;
+            }
+            else if (comboBox5.Text.ToString() == "Business Addres")
+            {
+                List<int> LocationTypeBusinessAddress = new List<int>() { 12 };
+                formLocation.LocationType = LocationTypeBusinessAddress;
+            }
+            else if (comboBox5.Text.ToString() == "Port/Airport")
+            {
+                List<int> LocationTypePortAirport = new List<int>() { 8, 9 };
+                formLocation.LocationType = LocationTypePortAirport;
+            }
+            var dataLocation2 = location.MultipleGet(formLocation).item;
+            foreach (var items in dataLocation2)
+            {
+                comboBox7.Items.Add(new { Text = items.name, Value = items.id });
+                comboBox7.DisplayMember = "Text";
+            }
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -517,6 +652,17 @@ namespace SimpleDeveloper
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button18_Click(object sender, EventArgs e)
+        {
+            Session.Remove("token");
+            return Json(new { status = "OK" }, JsonRequestBehavior.AllowGet);
         }
     }
 }

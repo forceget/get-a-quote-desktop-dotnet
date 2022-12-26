@@ -101,6 +101,7 @@
             this.button10 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -653,6 +654,7 @@
             this.comboBox7.Size = new System.Drawing.Size(142, 23);
             this.comboBox7.TabIndex = 9;
             this.comboBox7.SelectedIndexChanged += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
+            this.comboBox7.Click += new System.EventHandler(this.comboBox7_SelectedIndexChanged);
             // 
             // comboBox6
             // 
@@ -662,6 +664,7 @@
             this.comboBox6.Size = new System.Drawing.Size(137, 23);
             this.comboBox6.TabIndex = 9;
             this.comboBox6.SelectedIndexChanged += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
+            this.comboBox6.Click += new System.EventHandler(this.comboBox6_SelectedIndexChanged);
             // 
             // comboBox5
             // 
@@ -751,6 +754,7 @@
             this.comboBox4.Size = new System.Drawing.Size(160, 23);
             this.comboBox4.TabIndex = 8;
             this.comboBox4.SelectedIndexChanged += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
+            this.comboBox4.Click += new System.EventHandler(this.comboBox4_SelectedIndexChanged);
             // 
             // comboBox3
             // 
@@ -869,6 +873,14 @@
             this.dataGridView1.Size = new System.Drawing.Size(1790, 319);
             this.dataGridView1.TabIndex = 10;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1809, 24);
+            this.menuStrip1.TabIndex = 17;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -889,8 +901,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
+            this.Name = "Simple Developer";
+            this.Text = "Simple Developer";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -987,5 +1001,6 @@
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.ComboBox comboBox8;
+        private System.Windows.Forms.MenuStrip menuStrip1;
     }
 }

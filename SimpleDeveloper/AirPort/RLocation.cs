@@ -22,6 +22,7 @@ namespace Location
                 request.AddParameter("Take", form.Take);
                 request.AddParameter("Sort.Type", form.Sort.Type);
                 request.AddParameter("Offset", form.Offset);
+                request.AddParameter("CountryId", form.CountryId);
                 foreach (var item in form.LocationType)
                 {
                     request.AddParameter("LocationTypes", item);

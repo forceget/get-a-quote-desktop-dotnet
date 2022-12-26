@@ -6,6 +6,7 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static AutomaticPricing.MAutomaticPricing;
 
 namespace AutomaticPricing
 {
@@ -27,12 +28,13 @@ namespace AutomaticPricing
             public string FromLocationCountryId { get; set; }
             public string ToLocationCountryId { get; set; }
             public string ProductAmount { get; set; }
-            public int ShipmentLoadType { get; set; } 
-            public DateTime? ProductReadyDate { get; set; }
+            public string ProductReadyDate { get; set; }
             public List<FAutomaticPricingPackage> Packages { get; set; }
             public List<FAutomaticPricingContainer> Containers { get; set; }
-            public int HazardousGoods { get; set; }
             public string AffilatePartnerId { get; set; }
+
+            public int HazardousGoods { get; set; }
+            public int ShipmentLoadType { get; set; }
             public int Insurance { get; set; }
             public int CustomsClearance { get; set; }
 
@@ -96,41 +98,57 @@ namespace AutomaticPricing
         #region Root
         public class Item
         {
-            public object id { get; set; }
-            public object companyId { get; set; }
-            public object firstName { get; set; }
-            public object lastName { get; set; }
-            public object companyName { get; set; }
-            public object email { get; set; }
-            public object phoneNumber { get; set; }
-            public object transportationMethod { get; set; }
-            public object monthlyAverageShipment { get; set; }
-            public object fromType { get; set; }
-            public object toType { get; set; }
-            public object fromLocationId { get; set; }
-            public object toLocationId { get; set; }
-            public object fromLocationCountryId { get; set; }
-            public object toLocationCountryId { get; set; }
-            public object fromLocationCityId { get; set; }
-            public object toLocationCityId { get; set; }
-            public object fromLocationStateId { get; set; }
-            public object toLocationStateId { get; set; }
-            public object shipmentTypeId { get; set; }
-            public object shipmentType { get; set; }
-            public object containerType { get; set; }
-            public object containerNumber { get; set; }
-            public object packages { get; set; }
-            public object chargableWeight { get; set; }
-            public object totalPrice { get; set; }
+            public List<Pricing> pricings { get; set; }
             public string offerId { get; set; }
-            public int productAmount { get; set; }
-            public object fromLocationAddress { get; set; }
-            public DateTime productReadyDate { get; set; }
-            public int insurance { get; set; }
-            public int customsClearance { get; set; }
-            public int shipmentLoadType { get; set; }
-            public int isFreightos { get; set; }
-            public object freightosNumber { get; set; }
+            public string redirectUrl { get; set; }
+        }
+
+        public class Pricing
+        {
+            public int id { get; set; }
+            public int speedType { get; set; }
+            public int isSelected { get; set; }
+            public string startLocationId { get; set; }
+            public string startLocationName { get; set; }
+            public object startLocationAddress { get; set; }
+            public string startLocationCode { get; set; }
+            public string endLocationId { get; set; }
+            public string endLocationName { get; set; }
+            public string endLocationAddress { get; set; }
+            public string endLocationCode { get; set; }
+            public string fromPortId { get; set; }
+            public string fromPortName { get; set; }
+            public string fromPortCode { get; set; }
+            public string toPortId { get; set; }
+            public string toPortName { get; set; }
+            public string toPortCode { get; set; }
+            public string fromAirportId { get; set; }
+            public string fromAirportName { get; set; }
+            public string fromAirportCode { get; set; }
+            public string toAirportId { get; set; }
+            public string toAirportName { get; set; }
+            public string toAirportCode { get; set; }
+            public double totalPrice { get; set; }
+            public int transitTime { get; set; }
+            public string shipmentTypeId { get; set; }
+            public string shipmentTypeName { get; set; }
+            public string transportationTypeId { get; set; }
+            public string transportationTypeName { get; set; }
+            public string incotermId { get; set; }
+            public string incotermName { get; set; }
+            public List<PricingCostItem> pricingCostItems { get; set; }
+        }
+
+        public class PricingCostItem
+        {
+            public int id { get; set; }
+            public int offerPricingId { get; set; }
+            public double quantity { get; set; }
+            public double unitPrice { get; set; }
+            public double totalPrice { get; set; }
+            public string costTypeName { get; set; }
+            public string costItemName { get; set; }
+            public string description { get; set; }
         }
 
         public class Root
@@ -142,6 +160,7 @@ namespace AutomaticPricing
             public object total { get; set; }
             public int count { get; set; }
         }
+
 
 
         #endregion

@@ -26,23 +26,41 @@ namespace State
                 request.AddParameter("ToLocationId", form.ToLocationId);
                 request.AddParameter("ToLocationCountryId", form.ToLocationCountryId);
                 request.AddParameter("ToType", form.ToType);
-
-                request.AddParameter("Packages", form.Packages);
-                request.AddParameter("Containers", form.Containers);
+                
                 request.AddParameter("ProductAmount", form.ProductAmount);
                 request.AddParameter("ProductReadyDate", form.ProductReadyDate);
                 request.AddParameter("ShipmentLoadType", form.ShipmentLoadType);
                 request.AddParameter("CustomsClearance", form.CustomsClearance);
                 request.AddParameter("Insurance", form.Insurance);
+                request.AddParameter("HazardousGoods", form.HazardousGoods);
 
-                request.AddParameter("Email", "analyn@titansourcing.com");
-                request.AddParameter("FirstName", "analyn");
-                request.AddParameter("LastName", "titan");
-                request.AddParameter("CompanyName", "TitanSourcing");
-                request.AddParameter("AffilatePartnerId", "b592813a-df2a-4f66-aa66-5d80384f7053");
-                request.AddParameter("PhoneNumber", "11");
-                request.AddParameter("CompanyId", "0c79f71f-ec98-4b8d-9a9b-af9bf6a38ba5");
-
+                request.AddParameter("Email", form.Email);
+                request.AddParameter("FirstName", form.FirstName);
+                request.AddParameter("LastName", form.LastName);
+                request.AddParameter("PhoneNumber", form.PhoneNumber);
+                request.AddParameter("CompanyName", form.CompanyName);
+                request.AddParameter("CompanyId", form.CompanyId);
+                if (form.Packages != null)
+                {
+                    foreach (var item in form.Packages)
+                    {
+                        request.AddParameter("Packages[0].TotalUnit", item.TotalUnit);
+                        request.AddParameter("Packages[0].Length", item.Length);
+                        request.AddParameter("Packages[0].Height", item.Height);
+                        request.AddParameter("Packages[0].Weight", item.Weight);
+                        request.AddParameter("Packages[0].Width", item.Width);
+                        request.AddParameter("Packages[0].MetricType", item.MetricType);
+                        request.AddParameter("Packages[0].PackageTypeId", item.PackageTypeId);
+                    }
+                }
+                else
+                {
+                    foreach (var item in form.Containers)
+                    {
+                        request.AddParameter("Containers[0].Size", item.Size);
+                        request.AddParameter("Containers[0].TotalUnit", item.TotalUnit);
+                    }
+                }
 
                 var response = RNetworkingOperation.Post<MAutomaticPricing.Root>("https://localhost:44392/api/AutomaticPricing/GetAQuote", request);
 
