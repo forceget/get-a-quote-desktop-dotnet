@@ -661,8 +661,7 @@ namespace SimpleDeveloper
 
         private void button18_Click(object sender, EventArgs e)
         {
-            Session.Remove("token");
-            return Json(new { status = "OK" }, JsonRequestBehavior.AllowGet);
+           
         }
     }
 }
