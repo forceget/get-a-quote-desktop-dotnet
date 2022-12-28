@@ -796,7 +796,7 @@ namespace SimpleDeveloper
             this.panel9.Controls.Add(this.button9);
             this.panel9.Controls.Add(this.emailTextBox);
             this.panel9.Controls.Add(this.passwordTextBox);
-            this.panel9.Location = new System.Drawing.Point(29, 24);
+            this.panel9.Location = new System.Drawing.Point(0, 45);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1000, 759);
             this.panel9.TabIndex = 18;
@@ -855,8 +855,9 @@ namespace SimpleDeveloper
             "100",
             "1000",
             "10000"});
-            this.takedropdown.Location = new System.Drawing.Point(3, 3);
+            this.takedropdown.Location = new System.Drawing.Point(0, 1);
             this.takedropdown.Name = "takedropdown";
+            this.takedropdown.Text = "10";
             this.takedropdown.Size = new System.Drawing.Size(92, 23);
             this.takedropdown.TabIndex = 20;
             this.takedropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
