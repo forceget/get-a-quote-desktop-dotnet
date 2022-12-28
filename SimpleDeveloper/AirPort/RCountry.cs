@@ -24,7 +24,7 @@ namespace Country
                 request.AddParameter("Offset", form.Offset);
                 request.AddParameter("Search", form.Search);
 
-                var response = RNetworkingOperation.Post<MCountry.Root>(form.url + "/api/Country/MultipleGet", request);
+                var response = RNetworkingOperation.Post<MCountry.Root>(Config.Server + "/api/Country/MultipleGet", request);
 
                 return response;
             }

@@ -29,7 +29,7 @@ namespace Location
                 }
                 request.AddParameter("Search", form.Search);
 
-                var response = RNetworkingOperation.Post<MLocation.Root>(form.url + "/api/Location/Search", request);
+                var response = RNetworkingOperation.Post<MLocation.Root>(Config.Server + "/api/Location/Search", request);
 
                 return response;
             }

@@ -25,7 +25,7 @@ namespace Port
                 request.AddParameter("Search", form.Search);
 
 
-                var response = RNetworkingOperation.Post<MPort.Root>(form.url + "/api/Port/MultipleGet", request);
+                var response = RNetworkingOperation.Post<MPort.Root>(Config.Server + "/api/Port/MultipleGet", request);
 
                 return response;
             }

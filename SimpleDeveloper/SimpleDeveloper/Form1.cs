@@ -2,6 +2,7 @@
 using AutomaticPricing;
 using City;
 using Country;
+using Forceget.Apilibrary;
 using Location;
 using Port;
 using RestSharp.Extensions;
@@ -33,14 +34,7 @@ namespace SimpleDeveloper
             MToken.FilterForm formtoken = new MToken.FilterForm();
             formtoken.Email = emailTextBox.Text;
             formtoken.PasswordHash = passwordTextBox.Text;
-            if (serverComboBox.Text == "Test")
-            {
-                formtoken.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formtoken.url = "https://api.forceget.com";
-            }
+            
             var response = RToken.Login(formtoken);
 
 
@@ -52,14 +46,7 @@ namespace SimpleDeveloper
         {
             RAirPort airPort = new RAirPort();
             MAirPort.FilterForm formAirPort = new MAirPort.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formAirPort.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formAirPort.url = "https://api.forceget.com";
-            }
+           
             formAirPort.Take = Int32.Parse(takedropdown.Text.ToString());
             formAirPort.Offset = 0;
             formAirPort.Sort.Column = "NAME";
@@ -78,14 +65,6 @@ namespace SimpleDeveloper
         {
             RPort r = new RPort();
             MPort.FilterForm formPort = new MPort.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formPort.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formPort.url = "https://api.forceget.com";
-            }
             formPort.Take = Int32.Parse(takedropdown.Text.ToString());
             formPort.Offset = 0;
             formPort.Sort.Column = "NAME";
@@ -99,14 +78,6 @@ namespace SimpleDeveloper
         {
             RCountry country = new RCountry();
             MCountry.FilterForm formCountry = new MCountry.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formCountry.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formCountry.url = "https://api.forceget.com";
-            }
             formCountry.Take = Int32.Parse(takedropdown.Text.ToString());
             formCountry.Offset = 0;
             formCountry.Sort.Column = "NAME";
@@ -127,14 +98,6 @@ namespace SimpleDeveloper
         {
             RState state = new RState();
             MState.FilterForm formState = new MState.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formState.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formState.url = "https://api.forceget.com";
-            }
             formState.Take = Int32.Parse(takedropdown.Text.ToString());
             formState.Offset = 0;
             formState.Sort.Column = "NAME";
@@ -148,14 +111,6 @@ namespace SimpleDeveloper
         {
             RCity city = new RCity();
             MCity.FilterForm formCity = new MCity.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formCity.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formCity.url = "https://api.forceget.com";
-            }
                 formCity.Take = Int32.Parse(takedropdown.Text.ToString());
             formCity.Offset = 0;
             formCity.Sort.Column = "NAME";
@@ -169,14 +124,6 @@ namespace SimpleDeveloper
         {
             RLocation location = new RLocation();
             MLocation.FilterForm formLocation = new MLocation.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formLocation.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formLocation.url = "https://api.forceget.com";
-            }
             formLocation.Take = Int32.Parse(takedropdown.Text.ToString());
             formLocation.Offset = 0;
             formLocation.Sort.Column = "NAME";
@@ -192,14 +139,6 @@ namespace SimpleDeveloper
         {
             RLocation location = new RLocation();
             MLocation.FilterForm formLocation = new MLocation.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formLocation.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formLocation.url = "https://api.forceget.com";
-            }
                 formLocation.Take = Int32.Parse(takedropdown.Text.ToString());
             formLocation.Offset = 0;
             formLocation.Sort.Column = "NAME";
@@ -215,14 +154,6 @@ namespace SimpleDeveloper
         {
             RLocation location = new RLocation();
             MLocation.FilterForm formLocation = new MLocation.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formLocation.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formLocation.url = "https://api.forceget.com";
-            }
 
             formLocation.Take = Int32.Parse(takedropdown.Text.ToString());
             formLocation.Offset = 0;
@@ -254,26 +185,11 @@ namespace SimpleDeveloper
             RAutomaticPricing r = new RAutomaticPricing();
             MAutomaticPricing.Form formGetAQuate = new MAutomaticPricing.Form();
             MToken.FilterForm formtoken = new MToken.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formtoken.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formtoken.url = "https://api.forceget.com";
-            }
             formtoken.Email = emailTextBox.Text;
             formtoken.PasswordHash = passwordTextBox.Text;
 
             var response = RToken.Login(formtoken);
-            if (serverComboBox.Text == "Test")
-            {
-                formGetAQuate.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formGetAQuate.url = "https://api.forceget.com";
-            }
+            
             formGetAQuate.Email = emailTextBox.Text;
             formGetAQuate.FirstName = response.item.firstName;
             formGetAQuate.LastName = response.item.lastName;
@@ -357,26 +273,12 @@ namespace SimpleDeveloper
             MToken.FilterForm formtoken = new MToken.FilterForm();
             formtoken.Email = emailTextBox.Text;
             formtoken.PasswordHash = passwordTextBox.Text;
-            if (serverComboBox.Text == "Test")
-            {
-                formtoken.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formtoken.url = "https://api.forceget.com";
-            }
+            
             var response = RToken.Login(formtoken);
 
             RLocation location = new RLocation();
             MLocation.FilterForm formLocation = new MLocation.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formLocation.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formLocation.url = "https://api.forceget.com";
-            }
+            
             formLocation.Take = 100000;
             formLocation.Offset = 0;
             formLocation.Sort.Column = "NAME";
@@ -405,26 +307,11 @@ namespace SimpleDeveloper
             MToken.FilterForm formtoken = new MToken.FilterForm();
             formtoken.Email = emailTextBox.Text;
             formtoken.PasswordHash = passwordTextBox.Text;
-            if (serverComboBox.Text == "Test")
-            {
-                formtoken.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formtoken.url = "https://api.forceget.com";
-            }
             var response = RToken.Login(formtoken);
 
             RCountry country = new RCountry();
             MCountry.FilterForm formCountry = new MCountry.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formCountry.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formCountry.url = "https://api.forceget.com";
-            }
+            
             formCountry.Take = 1000;
             formCountry.Offset = 0;
             formCountry.Sort.Column = "NAME";
@@ -465,26 +352,11 @@ namespace SimpleDeveloper
             MToken.FilterForm formtoken = new MToken.FilterForm();
             formtoken.Email = emailTextBox.Text;
             formtoken.PasswordHash = passwordTextBox.Text;
-            if (serverComboBox.Text == "Test")
-            {
-                formtoken.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formtoken.url = "https://api.forceget.com";
-            }
             var response = RToken.Login(formtoken);
 
             RLocation location = new RLocation();
             MLocation.FilterForm formLocation = new MLocation.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formLocation.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formLocation.url = "https://api.forceget.com";
-            }
+            
             formLocation.Take = 10000;
             formLocation.Offset = 0;
             formLocation.Sort.Column = "NAME";
@@ -523,26 +395,11 @@ namespace SimpleDeveloper
             MToken.FilterForm formtoken = new MToken.FilterForm();
             formtoken.Email = emailTextBox.Text;
             formtoken.PasswordHash = passwordTextBox.Text;
-            if (serverComboBox.Text == "Test")
-            {
-                formtoken.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formtoken.url = "https://api.forceget.com";
-            }
             var response = RToken.Login(formtoken);
 
             RCountry country = new RCountry();
             MCountry.FilterForm formCountry = new MCountry.FilterForm();
-            if (serverComboBox.Text == "Test")
-            {
-                formCountry.url = "https://sandbox.forceget.com";
-            }
-            else
-            {
-                formCountry.url = "https://api.forceget.com";
-            }
+           
             formCountry.Take = 1000;
             formCountry.Offset = 0;
             formCountry.Sort.Column = "NAME";
@@ -873,5 +730,9 @@ namespace SimpleDeveloper
 
         }
 
+        private void serverComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Config.Server = serverComboBox.Text;
+        }
     }
 }

@@ -816,13 +816,14 @@ namespace SimpleDeveloper
             // 
             this.serverComboBox.FormattingEnabled = true;
             this.serverComboBox.Items.AddRange(new object[] {
-            "Test",
-            "Live"});
+            "https://sandbox.forceget.com",
+            "https://api.forceget.com"});
             this.serverComboBox.Location = new System.Drawing.Point(61, 530);
             this.serverComboBox.Name = "serverComboBox";
-            this.serverComboBox.Size = new System.Drawing.Size(121, 23);
+            this.serverComboBox.Size = new System.Drawing.Size(193, 23);
             this.serverComboBox.TabIndex = 14;
-            this.serverComboBox.Text = "Test";
+            this.serverComboBox.Text = "https://sandbox.forceget.com";
+            this.serverComboBox.SelectedIndexChanged += new System.EventHandler(this.serverComboBox_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -860,7 +861,7 @@ namespace SimpleDeveloper
             this.takedropdown.Size = new System.Drawing.Size(92, 23);
             this.takedropdown.TabIndex = 20;
             this.takedropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            this.takedropdown.Text = "10";
+            this.takedropdown.Text= "10";
             // 
             // menuStrip1
             // 

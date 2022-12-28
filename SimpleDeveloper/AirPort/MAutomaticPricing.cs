@@ -14,7 +14,6 @@ namespace AutomaticPricing
     {
         public class Form
         {
-            public string url { get; set; }
             public string Id { get; set; }
             public string CompanyId { get; set; }
             public string FirstName { get; set; }
