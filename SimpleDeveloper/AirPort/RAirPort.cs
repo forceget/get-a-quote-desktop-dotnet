@@ -18,8 +18,8 @@ namespace AirPort
                 request.AddParameter("Sort.Type", form.Sort.Type);
                 request.AddParameter("Offset", form.Offset);
                 request.AddParameter("Search", form.Search);
-
-                var response = RNetworkingOperation.Post<MAirPort.Root>("https://localhost:44392/api/AirPort/MultipleGet", request);
+                
+                var response = RNetworkingOperation.Post<MAirPort.Root>(form.url + "/api/AirPort/MultipleGet", request);
 
                 return response;
             }

@@ -1,4 +1,6 @@
-﻿namespace SimpleDeveloper
+﻿using System;
+
+namespace SimpleDeveloper
 {
     partial class Form1
     {
@@ -28,20 +30,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.emailTextBox = new System.Windows.Forms.TextBox();
             this.passwordTextBox = new System.Windows.Forms.TextBox();
             this.button9 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button13 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
             this.button27 = new System.Windows.Forms.Button();
@@ -95,13 +90,29 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button13 = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.serverComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.takedropdown = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aPIsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.airPortToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.portToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.countryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cityToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.locationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.amazonFulfillmentCenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.forcegetWarehouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.getAQuateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -109,164 +120,81 @@
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel2.SuspendLayout();
+            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel2.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.ForeColor = System.Drawing.SystemColors.Desktop;
-            this.button1.Location = new System.Drawing.Point(387, 36);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(127, 43);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Port";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.PortGet);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(520, 36);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(127, 43);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "AirPort";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.AirPortGet);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(653, 36);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(127, 43);
-            this.button3.TabIndex = 3;
-            this.button3.Text = "Country";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.CountryGet);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(786, 36);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(127, 43);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "State";
-            this.button4.UseVisualStyleBackColor = true;
-            this.button4.Click += new System.EventHandler(this.StateGet);
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(915, 36);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(127, 43);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "City";
-            this.button5.UseVisualStyleBackColor = true;
-            this.button5.Click += new System.EventHandler(this.CityGet);
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(1048, 36);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(127, 43);
-            this.button6.TabIndex = 6;
-            this.button6.Text = "Location";
-            this.button6.UseVisualStyleBackColor = true;
-            this.button6.Click += new System.EventHandler(this.LocationGet);
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(1181, 36);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(127, 43);
-            this.button7.TabIndex = 7;
-            this.button7.Text = "Amazon Fulfillment Center";
-            this.button7.UseVisualStyleBackColor = true;
-            this.button7.Click += new System.EventHandler(this.AmazonFulfillmentCenterGet);
-            // 
-            // button8
-            // 
-            this.button8.Location = new System.Drawing.Point(1314, 36);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(127, 43);
-            this.button8.TabIndex = 8;
-            this.button8.Text = "Forceget Warehouse";
-            this.button8.UseVisualStyleBackColor = true;
-            this.button8.Click += new System.EventHandler(this.ForcegetWarehouseGet);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 482);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(53, 15);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "DataGrid";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // emailTextBox
             // 
-            this.emailTextBox.Location = new System.Drawing.Point(1478, 22);
+            this.emailTextBox.Location = new System.Drawing.Point(61, 390);
             this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(150, 23);
+            this.emailTextBox.Size = new System.Drawing.Size(247, 23);
             this.emailTextBox.TabIndex = 11;
             this.emailTextBox.Text = "analyn@titansourcing.com";
             this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             // 
             // passwordTextBox
             // 
-            this.passwordTextBox.Location = new System.Drawing.Point(1634, 22);
+            this.passwordTextBox.Location = new System.Drawing.Point(61, 481);
             this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.Size = new System.Drawing.Size(139, 23);
+            this.passwordTextBox.Size = new System.Drawing.Size(247, 23);
             this.passwordTextBox.TabIndex = 12;
             this.passwordTextBox.Text = "123456";
+            this.passwordTextBox.PasswordChar = '\u25CF';
             this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // button9
             // 
-            this.button9.Location = new System.Drawing.Point(1681, 51);
+            this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button9.Location = new System.Drawing.Point(61, 559);
             this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(92, 28);
+            this.button9.Size = new System.Drawing.Size(268, 42);
             this.button9.TabIndex = 13;
-            this.button9.Text = "Login";
-            this.button9.UseVisualStyleBackColor = true;
+            this.button9.Text = "Log In";
+            this.button9.UseVisualStyleBackColor = false;
             this.button9.Click += new System.EventHandler(this.Login);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(26, 92);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(71, 15);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Get A Quate";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // panel1
             // 
+            this.panel1.BackgroundImage = global::SimpleDeveloperExampleForm.Properties.Resources.Get_a_quate;
+            this.panel1.Controls.Add(this.button13);
             this.panel1.Controls.Add(this.button28);
             this.panel1.Controls.Add(this.panel8);
             this.panel1.Controls.Add(this.panel5);
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel3);
-            this.panel1.Controls.Add(this.button13);
             this.panel1.Controls.Add(this.button12);
             this.panel1.Controls.Add(this.button11);
             this.panel1.Controls.Add(this.button10);
-            this.panel1.Location = new System.Drawing.Point(12, 124);
+            this.panel1.Location = new System.Drawing.Point(1032, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1785, 355);
+            this.panel1.Size = new System.Drawing.Size(1321, 643);
             this.panel1.TabIndex = 15;
+            this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // button13
+            // 
+            this.button13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button13.Location = new System.Drawing.Point(947, 131);
+            this.button13.Name = "button13";
+            this.button13.Size = new System.Drawing.Size(303, 71);
+            this.button13.TabIndex = 12;
+            this.button13.Text = "Goods";
+            this.button13.UseVisualStyleBackColor = false;
+            this.button13.Click += new System.EventHandler(this.button13_Click_1);
             // 
             // button28
             // 
-            this.button28.Location = new System.Drawing.Point(1686, 19);
+            this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button28.Location = new System.Drawing.Point(1256, 131);
             this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(75, 54);
+            this.button28.Size = new System.Drawing.Size(53, 73);
             this.button28.TabIndex = 11;
             this.button28.Text = "Get A Quate";
-            this.button28.UseVisualStyleBackColor = true;
+            this.button28.UseVisualStyleBackColor = false;
             this.button28.Click += new System.EventHandler(this.GetAQuate);
             // 
             // panel8
@@ -282,11 +210,12 @@
             this.panel8.Controls.Add(this.textBox6);
             this.panel8.Controls.Add(this.label18);
             this.panel8.Controls.Add(this.label21);
-            this.panel8.Location = new System.Drawing.Point(1435, 82);
+            this.panel8.Location = new System.Drawing.Point(947, 207);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(326, 273);
             this.panel8.TabIndex = 10;
             this.panel8.Visible = false;
+            this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
             // 
             // button27
             // 
@@ -390,11 +319,12 @@
             this.panel5.Controls.Add(this.button15);
             this.panel5.Controls.Add(this.button14);
             this.panel5.Controls.Add(this.label12);
-            this.panel5.Location = new System.Drawing.Point(994, 82);
+            this.panel5.Location = new System.Drawing.Point(631, 207);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(435, 273);
             this.panel5.TabIndex = 6;
             this.panel5.Visible = false;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // button26
             // 
@@ -630,11 +560,12 @@
             this.panel4.Controls.Add(this.label10);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(527, 79);
+            this.panel4.Location = new System.Drawing.Point(325, 204);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(461, 273);
             this.panel4.TabIndex = 5;
             this.panel4.Visible = false;
+            this.panel4.Paint += new System.Windows.Forms.PaintEventHandler(this.panel4_Paint);
             // 
             // button25
             // 
@@ -729,7 +660,7 @@
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(14, 79);
+            this.panel3.Location = new System.Drawing.Point(14, 207);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(507, 273);
             this.panel3.TabIndex = 4;
@@ -764,6 +695,7 @@
             this.comboBox3.Size = new System.Drawing.Size(150, 23);
             this.comboBox3.TabIndex = 7;
             this.comboBox3.SelectedIndexChanged += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
+            this.comboBox3.Click += new System.EventHandler(this.comboBox3_SelectedIndexChanged);
             // 
             // comboBox2
             // 
@@ -809,101 +741,241 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(20, 14);
+            this.label3.Location = new System.Drawing.Point(20, 43);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(172, 15);
             this.label3.TabIndex = 0;
             this.label3.Text = "  Where are you shipping from?";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // button13
-            // 
-            this.button13.Location = new System.Drawing.Point(1432, 19);
-            this.button13.Name = "button13";
-            this.button13.Size = new System.Drawing.Size(176, 54);
-            this.button13.TabIndex = 3;
-            this.button13.Text = "Goods";
-            this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
-            // 
             // button12
             // 
-            this.button12.Location = new System.Drawing.Point(995, 19);
+            this.button12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button12.Location = new System.Drawing.Point(631, 131);
             this.button12.Name = "button12";
-            this.button12.Size = new System.Drawing.Size(176, 54);
+            this.button12.Size = new System.Drawing.Size(310, 71);
             this.button12.TabIndex = 2;
             this.button12.Text = "Package Type";
-            this.button12.UseVisualStyleBackColor = true;
+            this.button12.UseVisualStyleBackColor = false;
             this.button12.Click += new System.EventHandler(this.button12_Click);
             // 
             // button11
             // 
-            this.button11.Location = new System.Drawing.Point(527, 19);
+            this.button11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button11.Location = new System.Drawing.Point(325, 131);
             this.button11.Name = "button11";
-            this.button11.Size = new System.Drawing.Size(176, 54);
+            this.button11.Size = new System.Drawing.Size(300, 71);
             this.button11.TabIndex = 1;
             this.button11.Text = "Delivery To";
-            this.button11.UseVisualStyleBackColor = true;
+            this.button11.UseVisualStyleBackColor = false;
             this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // button10
             // 
-            this.button10.Location = new System.Drawing.Point(14, 19);
+            this.button10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button10.Location = new System.Drawing.Point(3, 131);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(176, 54);
+            this.button10.Size = new System.Drawing.Size(316, 71);
             this.button10.TabIndex = 0;
             this.button10.Text = "Pickup From";
-            this.button10.UseVisualStyleBackColor = true;
+            this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
-            // panel2
+            // panel10
             // 
-            this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(11, 500);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1796, 322);
-            this.panel2.TabIndex = 16;
+            this.panel10.BackgroundImage = global::SimpleDeveloperExampleForm.Properties.Resources.started1;
+            this.panel10.Location = new System.Drawing.Point(12, 27);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(1000, 759);
+            this.panel10.TabIndex = 19;
+            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
+            // 
+            // panel9
+            // 
+            this.panel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel9.BackgroundImage")));
+            this.panel9.Controls.Add(this.label1);
+            this.panel9.Controls.Add(this.serverComboBox);
+            this.panel9.Controls.Add(this.button9);
+            this.panel9.Controls.Add(this.emailTextBox);
+            this.panel9.Controls.Add(this.passwordTextBox);
+            this.panel9.Location = new System.Drawing.Point(12, 24);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1000, 759);
+            this.panel9.TabIndex = 18;
+            this.panel9.Visible = false;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(61, 512);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Server";
+            // 
+            // serverComboBox
+            // 
+            this.serverComboBox.FormattingEnabled = true;
+            this.serverComboBox.Items.AddRange(new object[] {
+            "Test",
+            "Live"});
+            this.serverComboBox.Location = new System.Drawing.Point(61, 530);
+            this.serverComboBox.Name = "serverComboBox";
+            this.serverComboBox.Size = new System.Drawing.Size(121, 23);
+            this.serverComboBox.TabIndex = 14;
+            this.serverComboBox.Text = "Test";
             // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 23);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1790, 319);
+            this.dataGridView1.Size = new System.Drawing.Size(1774, 623);
             this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.takedropdown);
+            this.panel2.Controls.Add(this.dataGridView1);
+            this.panel2.Location = new System.Drawing.Point(1018, 405);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1772, 652);
+            this.panel2.TabIndex = 16;
+            this.panel2.Visible = false;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // takedropdown
+            // 
+            this.takedropdown.BackColor = System.Drawing.SystemColors.Window;
+            this.takedropdown.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.takedropdown.FormattingEnabled = true;
+            this.takedropdown.Items.AddRange(new object[] {
+            "10",
+            "100",
+            "1000",
+            "10000"});
+            this.takedropdown.Text= "10";
+            this.takedropdown.Location = new System.Drawing.Point(3, 3);
+            this.takedropdown.Name = "takedropdown";
+            this.takedropdown.Size = new System.Drawing.Size(92, 23);
+            this.takedropdown.TabIndex = 20;
+            this.takedropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.loginToolStripMenuItem,
+            this.aPIsToolStripMenuItem,
+            this.getAQuateToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1809, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1810, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
+            // 
+            // loginToolStripMenuItem
+            // 
+            this.loginToolStripMenuItem.Name = "loginToolStripMenuItem";
+            this.loginToolStripMenuItem.Size = new System.Drawing.Size(49, 20);
+            this.loginToolStripMenuItem.Text = "Login";
+            this.loginToolStripMenuItem.Click += new System.EventHandler(this.loginToolStripMenuItem_Click);
+            // 
+            // aPIsToolStripMenuItem
+            // 
+            this.aPIsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.airPortToolStripMenuItem,
+            this.portToolStripMenuItem,
+            this.countryToolStripMenuItem,
+            this.stateToolStripMenuItem,
+            this.cityToolStripMenuItem,
+            this.locationToolStripMenuItem,
+            this.amazonFulfillmentCenterToolStripMenuItem,
+            this.forcegetWarehouseToolStripMenuItem});
+            this.aPIsToolStripMenuItem.Name = "aPIsToolStripMenuItem";
+            this.aPIsToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.aPIsToolStripMenuItem.Text = "API\'s";
+            this.aPIsToolStripMenuItem.Click += new System.EventHandler(this.aPIsToolStripMenuItem_Click);
+            // 
+            // airPortToolStripMenuItem
+            // 
+            this.airPortToolStripMenuItem.Name = "airPortToolStripMenuItem";
+            this.airPortToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.airPortToolStripMenuItem.Text = "AirPort";
+            this.airPortToolStripMenuItem.Click += new System.EventHandler(this.airPortToolStripMenuItem_Click);
+            // 
+            // portToolStripMenuItem
+            // 
+            this.portToolStripMenuItem.Name = "portToolStripMenuItem";
+            this.portToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.portToolStripMenuItem.Text = "Port";
+            this.portToolStripMenuItem.Click += new System.EventHandler(this.portToolStripMenuItem_Click);
+            // 
+            // countryToolStripMenuItem
+            // 
+            this.countryToolStripMenuItem.Name = "countryToolStripMenuItem";
+            this.countryToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.countryToolStripMenuItem.Text = "Country";
+            this.countryToolStripMenuItem.Click += new System.EventHandler(this.countryToolStripMenuItem_Click);
+            // 
+            // stateToolStripMenuItem
+            // 
+            this.stateToolStripMenuItem.Name = "stateToolStripMenuItem";
+            this.stateToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.stateToolStripMenuItem.Text = "State";
+            this.stateToolStripMenuItem.Click += new System.EventHandler(this.stateToolStripMenuItem_Click);
+            // 
+            // cityToolStripMenuItem
+            // 
+            this.cityToolStripMenuItem.Name = "cityToolStripMenuItem";
+            this.cityToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.cityToolStripMenuItem.Text = "City";
+            this.cityToolStripMenuItem.Click += new System.EventHandler(this.cityToolStripMenuItem_Click);
+            // 
+            // locationToolStripMenuItem
+            // 
+            this.locationToolStripMenuItem.Name = "locationToolStripMenuItem";
+            this.locationToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.locationToolStripMenuItem.Text = "Location";
+            this.locationToolStripMenuItem.Click += new System.EventHandler(this.locationToolStripMenuItem_Click);
+            // 
+            // amazonFulfillmentCenterToolStripMenuItem
+            // 
+            this.amazonFulfillmentCenterToolStripMenuItem.Name = "amazonFulfillmentCenterToolStripMenuItem";
+            this.amazonFulfillmentCenterToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.amazonFulfillmentCenterToolStripMenuItem.Text = "Amazon Fulfillment Center";
+            this.amazonFulfillmentCenterToolStripMenuItem.Click += new System.EventHandler(this.amazonFulfillmentCenterToolStripMenuItem_Click);
+            // 
+            // forcegetWarehouseToolStripMenuItem
+            // 
+            this.forcegetWarehouseToolStripMenuItem.Name = "forcegetWarehouseToolStripMenuItem";
+            this.forcegetWarehouseToolStripMenuItem.Size = new System.Drawing.Size(216, 22);
+            this.forcegetWarehouseToolStripMenuItem.Text = "Forceget Warehouse";
+            this.forcegetWarehouseToolStripMenuItem.Click += new System.EventHandler(this.forcegetWarehouseToolStripMenuItem_Click);
+            // 
+            // getAQuateToolStripMenuItem
+            // 
+            this.getAQuateToolStripMenuItem.Name = "getAQuateToolStripMenuItem";
+            this.getAQuateToolStripMenuItem.Size = new System.Drawing.Size(83, 20);
+            this.getAQuateToolStripMenuItem.Text = "Get A Quate";
+            this.getAQuateToolStripMenuItem.Click += new System.EventHandler(this.getAQuateToolStripMenuItem_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1809, 820);
-            this.Controls.Add(this.panel2);
+            this.ClientSize = new System.Drawing.Size(1810, 724);
+            this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.button9);
-            this.Controls.Add(this.passwordTextBox);
-            this.Controls.Add(this.emailTextBox);
-            this.Controls.Add(this.button8);
-            this.Controls.Add(this.button7);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel10);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "Simple Developer";
+            this.Text = "Forceget Simple Developer";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel8.ResumeLayout(false);
@@ -918,32 +990,24 @@
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel2.ResumeLayout(false);
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox emailTextBox;
         private System.Windows.Forms.TextBox passwordTextBox;
         private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Button button13;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Button button11;
         private System.Windows.Forms.Button button10;
@@ -1001,5 +1065,23 @@
         private System.Windows.Forms.Button button28;
         private System.Windows.Forms.ComboBox comboBox8;
         private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem loginToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aPIsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem airPortToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem portToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem countryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem stateToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cityToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem locationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem amazonFulfillmentCenterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem forcegetWarehouseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem getAQuateToolStripMenuItem;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Button button13;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ComboBox takedropdown;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox serverComboBox;
     }
 }

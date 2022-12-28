@@ -24,7 +24,7 @@ namespace State
                 request.AddParameter("Offset", form.Offset);
                 request.AddParameter("Search", form.Search);
 
-                var response = RNetworkingOperation.Post<MState.Root>("https://localhost:44392/api/State/MultipleGet", request);
+                var response = RNetworkingOperation.Post<MState.Root>(form.url + "/api/State/MultipleGet", request);
 
                 return response;
             }

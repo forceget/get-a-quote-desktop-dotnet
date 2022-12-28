@@ -62,7 +62,7 @@ namespace State
                     }
                 }
 
-                var response = RNetworkingOperation.Post<MAutomaticPricing.Root>("https://localhost:44392/api/AutomaticPricing/GetAQuote", request);
+                var response = RNetworkingOperation.Post<MAutomaticPricing.Root>(form.url + "/api/AutomaticPricing/GetAQuote", request);
 
                 return response;
 

@@ -7,7 +7,7 @@ namespace SimpleDeveloper.InAndOutModel
     public class MFilterBase
     {
         public MSort Sort { get; set; } = new MSort();
-
+        public string url { get; set; }    
         public int Offset { get; set; } = 0;
 
         public int Take { get; set; } = 10;

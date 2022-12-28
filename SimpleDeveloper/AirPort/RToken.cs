@@ -17,7 +17,7 @@ namespace Token
                 request.AddParameter("Email", form.Email);
                 request.AddParameter("Password", form.PasswordHash);
 
-                var response = RNetworkingOperation.Post<MToken.Root>("https://localhost:44392/api/User/Token", request);
+                var response = RNetworkingOperation.Post<MToken.Root>(form.url+"/api/User/Token", request);
                 Token = response.item.token;
                 rb = response;
                 return rb;

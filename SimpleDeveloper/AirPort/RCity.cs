@@ -25,7 +25,7 @@ namespace City
                 request.AddParameter("Offset", form.Offset);
                 request.AddParameter("Search", form.Search);
 
-                var response = RNetworkingOperation.Post<MCity.Root>("https://localhost:44392/api/City/MultipleGet", request);
+                var response = RNetworkingOperation.Post<MCity.Root>(form.url + "/api/City/MultipleGet", request);
 
                 return response;
             }
