@@ -132,17 +132,15 @@ namespace SimpleDeveloper
             this.emailTextBox.Name = "emailTextBox";
             this.emailTextBox.Size = new System.Drawing.Size(247, 23);
             this.emailTextBox.TabIndex = 11;
-            this.emailTextBox.Text = "analyn@titansourcing.com";
             this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
             // 
             // passwordTextBox
             // 
             this.passwordTextBox.Location = new System.Drawing.Point(61, 481);
             this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '●';
             this.passwordTextBox.Size = new System.Drawing.Size(247, 23);
             this.passwordTextBox.TabIndex = 12;
-            this.passwordTextBox.Text = "123456";
-            this.passwordTextBox.PasswordChar = '\u25CF';
             this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
             // 
             // button9
@@ -798,7 +796,7 @@ namespace SimpleDeveloper
             this.panel9.Controls.Add(this.button9);
             this.panel9.Controls.Add(this.emailTextBox);
             this.panel9.Controls.Add(this.passwordTextBox);
-            this.panel9.Location = new System.Drawing.Point(12, 24);
+            this.panel9.Location = new System.Drawing.Point(29, 24);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(1000, 759);
             this.panel9.TabIndex = 18;
@@ -857,7 +855,6 @@ namespace SimpleDeveloper
             "100",
             "1000",
             "10000"});
-            this.takedropdown.Text= "10";
             this.takedropdown.Location = new System.Drawing.Point(3, 3);
             this.takedropdown.Name = "takedropdown";
             this.takedropdown.Size = new System.Drawing.Size(92, 23);
