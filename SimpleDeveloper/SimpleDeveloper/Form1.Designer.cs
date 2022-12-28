@@ -857,7 +857,6 @@ namespace SimpleDeveloper
             "10000"});
             this.takedropdown.Location = new System.Drawing.Point(0, 1);
             this.takedropdown.Name = "takedropdown";
-            this.takedropdown.Text = "10";
             this.takedropdown.Size = new System.Drawing.Size(92, 23);
             this.takedropdown.TabIndex = 20;
             this.takedropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
@@ -870,7 +869,7 @@ namespace SimpleDeveloper
             this.getAQuateToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1810, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1011, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -965,7 +964,7 @@ namespace SimpleDeveloper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1810, 724);
+            this.ClientSize = new System.Drawing.Size(1011, 724);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel10);
