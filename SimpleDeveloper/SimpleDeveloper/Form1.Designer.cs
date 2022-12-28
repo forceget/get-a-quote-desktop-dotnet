@@ -861,7 +861,7 @@ namespace SimpleDeveloper
             this.takedropdown.Size = new System.Drawing.Size(92, 23);
             this.takedropdown.TabIndex = 20;
             this.takedropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            this.takedropdown.Text= "10";
+            this.takedropdown.Text = "10";
             // 
             // menuStrip1
             // 
