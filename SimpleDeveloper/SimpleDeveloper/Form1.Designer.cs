@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace SimpleDeveloper
 {
@@ -32,10 +33,9 @@ namespace SimpleDeveloper
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.emailTextBox = new System.Windows.Forms.TextBox();
-            this.passwordTextBox = new System.Windows.Forms.TextBox();
-            this.button9 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label22 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.button28 = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
@@ -93,10 +93,6 @@ namespace SimpleDeveloper
             this.button12 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.button10 = new System.Windows.Forms.Button();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.serverComboBox = new System.Windows.Forms.ComboBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.takedropdown = new System.Windows.Forms.ComboBox();
@@ -113,6 +109,15 @@ namespace SimpleDeveloper
             this.forcegetWarehouseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getAQuateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.emailTextBox = new System.Windows.Forms.TextBox();
+            this.button9 = new System.Windows.Forms.Button();
+            this.serverComboBox = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -120,43 +125,16 @@ namespace SimpleDeveloper
             this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel2.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.panel9.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // emailTextBox
-            // 
-            this.emailTextBox.Location = new System.Drawing.Point(61, 390);
-            this.emailTextBox.Name = "emailTextBox";
-            this.emailTextBox.Size = new System.Drawing.Size(247, 23);
-            this.emailTextBox.TabIndex = 11;
-            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
-            // 
-            // passwordTextBox
-            // 
-            this.passwordTextBox.Location = new System.Drawing.Point(61, 481);
-            this.passwordTextBox.Name = "passwordTextBox";
-            this.passwordTextBox.PasswordChar = '●';
-            this.passwordTextBox.Size = new System.Drawing.Size(247, 23);
-            this.passwordTextBox.TabIndex = 12;
-            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
-            // 
-            // button9
-            // 
-            this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.button9.Location = new System.Drawing.Point(61, 559);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(268, 42);
-            this.button9.TabIndex = 13;
-            this.button9.Text = "Log In";
-            this.button9.UseVisualStyleBackColor = false;
-            this.button9.Click += new System.EventHandler(this.Login);
             // 
             // panel1
             // 
-            this.panel1.BackgroundImage = global::SimpleDeveloperExampleForm.Properties.Resources.Get_a_quate;
+            this.panel1.Controls.Add(this.label22);
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button13);
             this.panel1.Controls.Add(this.button28);
             this.panel1.Controls.Add(this.panel8);
@@ -166,12 +144,32 @@ namespace SimpleDeveloper
             this.panel1.Controls.Add(this.button12);
             this.panel1.Controls.Add(this.button11);
             this.panel1.Controls.Add(this.button10);
-            this.panel1.Location = new System.Drawing.Point(1032, 27);
+            this.panel1.Location = new System.Drawing.Point(393, 103);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1321, 643);
+            this.panel1.Size = new System.Drawing.Size(1321, 601);
             this.panel1.TabIndex = 15;
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(14, 530);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(65, 15);
+            this.label22.TabIndex = 14;
+            this.label22.Text = "Go website";
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.button1.Location = new System.Drawing.Point(14, 548);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(226, 30);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "https://app.forceget.com/GetAQuote";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button13
             // 
@@ -189,7 +187,7 @@ namespace SimpleDeveloper
             this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.button28.Location = new System.Drawing.Point(1256, 131);
             this.button28.Name = "button28";
-            this.button28.Size = new System.Drawing.Size(53, 73);
+            this.button28.Size = new System.Drawing.Size(53, 71);
             this.button28.TabIndex = 11;
             this.button28.Text = "Get A Quate";
             this.button28.UseVisualStyleBackColor = false;
@@ -210,7 +208,7 @@ namespace SimpleDeveloper
             this.panel8.Controls.Add(this.label21);
             this.panel8.Location = new System.Drawing.Point(947, 207);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(326, 273);
+            this.panel8.Size = new System.Drawing.Size(335, 273);
             this.panel8.TabIndex = 10;
             this.panel8.Visible = false;
             this.panel8.Paint += new System.Windows.Forms.PaintEventHandler(this.panel8_Paint);
@@ -558,7 +556,7 @@ namespace SimpleDeveloper
             this.panel4.Controls.Add(this.label10);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(325, 204);
+            this.panel4.Location = new System.Drawing.Point(325, 207);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(461, 273);
             this.panel4.TabIndex = 5;
@@ -760,7 +758,7 @@ namespace SimpleDeveloper
             // button11
             // 
             this.button11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button11.Location = new System.Drawing.Point(325, 131);
+            this.button11.Location = new System.Drawing.Point(325, 130);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(300, 71);
             this.button11.TabIndex = 1;
@@ -771,59 +769,13 @@ namespace SimpleDeveloper
             // button10
             // 
             this.button10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(3, 131);
+            this.button10.Location = new System.Drawing.Point(14, 130);
             this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(316, 71);
+            this.button10.Size = new System.Drawing.Size(305, 71);
             this.button10.TabIndex = 0;
             this.button10.Text = "Pickup From";
             this.button10.UseVisualStyleBackColor = false;
             this.button10.Click += new System.EventHandler(this.button10_Click);
-            // 
-            // panel10
-            // 
-            this.panel10.BackgroundImage = global::SimpleDeveloperExampleForm.Properties.Resources.started1;
-            this.panel10.Location = new System.Drawing.Point(12, 27);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(1000, 759);
-            this.panel10.TabIndex = 19;
-            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint);
-            // 
-            // panel9
-            // 
-            this.panel9.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel9.BackgroundImage")));
-            this.panel9.Controls.Add(this.label1);
-            this.panel9.Controls.Add(this.serverComboBox);
-            this.panel9.Controls.Add(this.button9);
-            this.panel9.Controls.Add(this.emailTextBox);
-            this.panel9.Controls.Add(this.passwordTextBox);
-            this.panel9.Location = new System.Drawing.Point(0, 45);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(1000, 759);
-            this.panel9.TabIndex = 18;
-            this.panel9.Visible = false;
-            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(61, 512);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 15);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Server";
-            // 
-            // serverComboBox
-            // 
-            this.serverComboBox.FormattingEnabled = true;
-            this.serverComboBox.Items.AddRange(new object[] {
-            "https://sandbox.forceget.com",
-            "https://api.forceget.com"});
-            this.serverComboBox.Location = new System.Drawing.Point(61, 530);
-            this.serverComboBox.Name = "serverComboBox";
-            this.serverComboBox.Size = new System.Drawing.Size(193, 23);
-            this.serverComboBox.TabIndex = 14;
-            this.serverComboBox.Text = "https://sandbox.forceget.com";
-            this.serverComboBox.SelectedIndexChanged += new System.EventHandler(this.serverComboBox_SelectedIndexChanged);
             // 
             // dataGridView1
             // 
@@ -831,7 +783,7 @@ namespace SimpleDeveloper
             this.dataGridView1.Location = new System.Drawing.Point(3, 23);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowTemplate.Height = 25;
-            this.dataGridView1.Size = new System.Drawing.Size(1774, 623);
+            this.dataGridView1.Size = new System.Drawing.Size(981, 346);
             this.dataGridView1.TabIndex = 10;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
@@ -839,9 +791,9 @@ namespace SimpleDeveloper
             // 
             this.panel2.Controls.Add(this.takedropdown);
             this.panel2.Controls.Add(this.dataGridView1);
-            this.panel2.Location = new System.Drawing.Point(1018, 405);
+            this.panel2.Location = new System.Drawing.Point(592, 38);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1772, 652);
+            this.panel2.Size = new System.Drawing.Size(987, 376);
             this.panel2.TabIndex = 16;
             this.panel2.Visible = false;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
@@ -861,7 +813,6 @@ namespace SimpleDeveloper
             this.takedropdown.Size = new System.Drawing.Size(92, 23);
             this.takedropdown.TabIndex = 20;
             this.takedropdown.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged_1);
-            this.takedropdown.Text = "10";
             // 
             // menuStrip1
             // 
@@ -871,7 +822,7 @@ namespace SimpleDeveloper
             this.getAQuateToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1011, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1786, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -962,14 +913,108 @@ namespace SimpleDeveloper
             this.getAQuateToolStripMenuItem.Text = "Get A Quate";
             this.getAQuateToolStripMenuItem.Click += new System.EventHandler(this.getAQuateToolStripMenuItem_Click);
             // 
+            // passwordTextBox
+            // 
+            this.passwordTextBox.Location = new System.Drawing.Point(14, 125);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.PasswordChar = '●';
+            this.passwordTextBox.Size = new System.Drawing.Size(268, 23);
+            this.passwordTextBox.TabIndex = 12;
+            this.passwordTextBox.TextChanged += new System.EventHandler(this.passwordTextBox_TextChanged);
+            // 
+            // emailTextBox
+            // 
+            this.emailTextBox.Location = new System.Drawing.Point(14, 66);
+            this.emailTextBox.Name = "emailTextBox";
+            this.emailTextBox.Size = new System.Drawing.Size(268, 23);
+            this.emailTextBox.TabIndex = 11;
+            this.emailTextBox.TextChanged += new System.EventHandler(this.emailTextBox_TextChanged);
+            // 
+            // button9
+            // 
+            this.button9.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button9.Location = new System.Drawing.Point(14, 211);
+            this.button9.Name = "button9";
+            this.button9.Size = new System.Drawing.Size(268, 42);
+            this.button9.TabIndex = 13;
+            this.button9.Text = "Log In";
+            this.button9.UseVisualStyleBackColor = false;
+            this.button9.Click += new System.EventHandler(this.Login);
+            // 
+            // serverComboBox
+            // 
+            this.serverComboBox.FormattingEnabled = true;
+            this.serverComboBox.Items.AddRange(new object[] {
+            "https://sandbox.forceget.com",
+            "https://api.forceget.com"});
+            this.serverComboBox.Location = new System.Drawing.Point(14, 174);
+            this.serverComboBox.Name = "serverComboBox";
+            this.serverComboBox.Size = new System.Drawing.Size(268, 23);
+            this.serverComboBox.TabIndex = 14;
+            this.serverComboBox.Text = "https://sandbox.forceget.com";
+            this.serverComboBox.SelectedIndexChanged += new System.EventHandler(this.serverComboBox_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(14, 156);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(39, 15);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Server";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel9.Controls.Add(this.label20);
+            this.panel9.Controls.Add(this.label4);
+            this.panel9.Controls.Add(this.label2);
+            this.panel9.Controls.Add(this.label1);
+            this.panel9.Controls.Add(this.serverComboBox);
+            this.panel9.Controls.Add(this.button9);
+            this.panel9.Controls.Add(this.emailTextBox);
+            this.panel9.Controls.Add(this.passwordTextBox);
+            this.panel9.Location = new System.Drawing.Point(12, 27);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(325, 336);
+            this.panel9.TabIndex = 18;
+            this.panel9.Visible = false;
+            this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(15, 11);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(43, 15);
+            this.label20.TabIndex = 18;
+            this.label20.Text = "Sign in";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(15, 107);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(57, 15);
+            this.label4.TabIndex = 17;
+            this.label4.Text = "Password";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(15, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 15);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Email";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1011, 724);
+            this.ClientSize = new System.Drawing.Size(1786, 818);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.panel10);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -977,6 +1022,7 @@ namespace SimpleDeveloper
             this.Text = "Forceget Simple Developer";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -989,21 +1035,18 @@ namespace SimpleDeveloper
             this.panel4.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.panel9.ResumeLayout(false);
+            this.panel9.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox emailTextBox;
-        private System.Windows.Forms.TextBox passwordTextBox;
-        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.DataGridView dataGridView1;
@@ -1075,12 +1118,19 @@ namespace SimpleDeveloper
         private System.Windows.Forms.ToolStripMenuItem amazonFulfillmentCenterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem forcegetWarehouseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem getAQuateToolStripMenuItem;
-        private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button button13;
-        private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ComboBox takedropdown;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.TextBox emailTextBox;
+        private System.Windows.Forms.Button button9;
         private System.Windows.Forms.ComboBox serverComboBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label22;
     }
 }

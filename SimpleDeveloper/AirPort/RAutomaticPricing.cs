@@ -69,7 +69,6 @@ namespace State
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }

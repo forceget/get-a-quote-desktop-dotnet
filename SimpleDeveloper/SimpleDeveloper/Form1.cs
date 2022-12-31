@@ -19,6 +19,7 @@ using static AutomaticPricing.MAutomaticPricing;
 using static Port.MPort;
 using static System.Collections.Specialized.BitVector32;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using System.Diagnostics;
 
 namespace SimpleDeveloper
 {
@@ -39,13 +40,16 @@ namespace SimpleDeveloper
 
                 var response = RToken.Login(formtoken);
 
-
-
                 dataGridView1.DataSource = response;
+                if (response.status == 200)
+                {
+                    MessageBox.Show("Login Successful");
+                }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
         private void airPortToolStripMenuItem_Click(object sender, EventArgs e)
@@ -67,10 +71,10 @@ namespace SimpleDeveloper
                     dataGridView1.DataSource = data.item.ToList();
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
 
@@ -88,10 +92,10 @@ namespace SimpleDeveloper
                 var data = r.MultipleGet(formPort).item;
                 dataGridView1.DataSource = data.ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
 
@@ -116,12 +120,12 @@ namespace SimpleDeveloper
 
                 dataGridView1.DataSource = data.ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
-           
+
         }
 
         private void stateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -138,10 +142,10 @@ namespace SimpleDeveloper
                 var data = state.MultipleGet(formState).item;
                 dataGridView1.DataSource = data.ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
 
@@ -159,12 +163,12 @@ namespace SimpleDeveloper
                 var data = city.MultipleGet(formCity).item;
                 dataGridView1.DataSource = data.ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
-            
+
         }
 
         private void locationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -183,10 +187,10 @@ namespace SimpleDeveloper
                 var data = location.MultipleGet(formLocation).item;
                 dataGridView1.DataSource = data.ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
 
@@ -206,10 +210,10 @@ namespace SimpleDeveloper
                 var data = location.MultipleGet(formLocation).item;
                 dataGridView1.DataSource = data.ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
 
@@ -230,10 +234,10 @@ namespace SimpleDeveloper
                 var data = location.MultipleGet(formLocation).item;
                 dataGridView1.DataSource = data.ToList();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -253,12 +257,12 @@ namespace SimpleDeveloper
                         break;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
-           
+
         }
         private void GetAQuate(object sender, EventArgs e)
         {
@@ -347,15 +351,18 @@ namespace SimpleDeveloper
                 }
 
                 var data = r.GetAQuate(formGetAQuate);
-                dataGridView1.DataSource = data.statusText.ToString();
-                //dataGridView1.DataSource = data.ToList();
-            }
-            catch (Exception)
-            {
+                if (data.status == 200)
+                {
+                    MessageBox.Show(data.statusText);
 
-                throw;
+                }
             }
-            
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
         }
         private void comboBox4_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -369,7 +376,6 @@ namespace SimpleDeveloper
 
                 RLocation location = new RLocation();
                 MLocation.FilterForm formLocation = new MLocation.FilterForm();
-
                 formLocation.Take = 100000;
                 formLocation.Offset = 0;
                 formLocation.Sort.Column = "NAME";
@@ -392,24 +398,26 @@ namespace SimpleDeveloper
                     comboBox4.DisplayMember = "Text";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
         private void comboBox6_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
             {
+                if (comboBox6.SelectedIndex == -1)
+                {
+                    comboBox6.Items.Clear();
+                }
                 MToken.FilterForm formtoken = new MToken.FilterForm();
                 formtoken.Email = emailTextBox.Text;
                 formtoken.PasswordHash = passwordTextBox.Text;
                 var response = RToken.Login(formtoken);
-
                 RCountry country = new RCountry();
                 MCountry.FilterForm formCountry = new MCountry.FilterForm();
-
                 formCountry.Take = 1000;
                 formCountry.Offset = 0;
                 formCountry.Sort.Column = "NAME";
@@ -445,10 +453,10 @@ namespace SimpleDeveloper
                     }
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
         private void comboBox7_SelectedIndexChanged(object sender, EventArgs e)
@@ -496,10 +504,10 @@ namespace SimpleDeveloper
                     comboBox7.DisplayMember = "Text";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e)
@@ -526,10 +534,10 @@ namespace SimpleDeveloper
                     comboBox3.DisplayMember = "Text";
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                MessageBox.Show(ex.Message);
+                return;
             }
         }
         private void label1_Click_1(object sender, EventArgs e)
@@ -771,7 +779,6 @@ namespace SimpleDeveloper
         {
             panel1.Visible = false;
             panel2.Visible = false;
-            panel10.Visible = false;
             panel9.Visible = true;
             this.panel9.Location = new System.Drawing.Point(12, 24);
             this.ClientSize = new System.Drawing.Size(1005, 765);
@@ -782,7 +789,6 @@ namespace SimpleDeveloper
         {
             panel9.Visible = false;
             panel2.Visible = false;
-            panel10.Visible = false;
             panel1.Visible = true;
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.ClientSize = new System.Drawing.Size(1325, 648);
@@ -791,7 +797,6 @@ namespace SimpleDeveloper
         {
             panel1.Visible = false;
             panel9.Visible = false;
-            panel10.Visible = false;
             panel2.Visible = true;
             this.panel2.Location = new System.Drawing.Point(12, 24);
             //this.panel2.Size = new System.Drawing.Size(1772, 652);
@@ -843,6 +848,36 @@ namespace SimpleDeveloper
         private void serverComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Config.Server = serverComboBox.Text;
+        }
+
+        private void label22_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                ProcessStartInfo startInfo = new ProcessStartInfo("chrome.exe");
+
+                startInfo.WindowStyle = ProcessWindowStyle.Minimized;
+
+                startInfo.UseShellExecute = true;
+
+                startInfo.Verb = "runas";
+
+                startInfo.Arguments = "https://app.forceget.com/GetAQuote";
+
+                Process.Start(startInfo);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
         }
     }
 }
