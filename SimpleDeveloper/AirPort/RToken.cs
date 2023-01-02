@@ -18,7 +18,10 @@ namespace Token
                 request.AddParameter("Password", form.PasswordHash);
 
                 var response = RNetworkingOperation.Post<MToken.Root>(Config.Server+"/api/User/Token", request);
-                Token = response.item.token;
+                if (response.item != null)
+                {
+                    Token = response.item.token;
+                }
                 rb = response;
                 return rb;
             }

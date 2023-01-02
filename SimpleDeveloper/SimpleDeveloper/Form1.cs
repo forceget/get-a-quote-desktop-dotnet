@@ -40,11 +40,18 @@ namespace SimpleDeveloper
 
                 var response = RToken.Login(formtoken);
 
-                dataGridView1.DataSource = response;
                 if (response.status == 200)
                 {
                     MessageBox.Show("Login Successful");
                 }
+                else 
+                {
+                    foreach (var item in response.statusTexts)
+                    {
+                        MessageBox.Show(item.ToString());
+                    }
+                }
+                
             }
             catch (Exception ex)
             {
@@ -70,6 +77,10 @@ namespace SimpleDeveloper
                 {
                     dataGridView1.DataSource = data.item.ToList();
                 }
+                else
+                {
+                    MessageBox.Show("Data null ! Check login information.");
+                }
             }
             catch (Exception ex)
             {
@@ -89,8 +100,15 @@ namespace SimpleDeveloper
                 formPort.Sort.Column = "NAME";
                 formPort.Sort.Type = "ASC";
 
-                var data = r.MultipleGet(formPort).item;
-                dataGridView1.DataSource = data.ToList();
+                var data = r.MultipleGet(formPort);
+                if (data != null)
+                {
+                    dataGridView1.DataSource = data.item.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Data null ! Check login information.");
+                }
             }
             catch (Exception ex)
             {
@@ -110,15 +128,15 @@ namespace SimpleDeveloper
                 formCountry.Sort.Column = "NAME";
                 formCountry.Sort.Type = "ASC";
 
-                var data = country.MultipleGet(formCountry).item;
-                foreach (var items in data)
+                var data = country.MultipleGet(formCountry);
+                if (data != null)
                 {
-                    comboBox3.Items.Add(items.name);
+                    dataGridView1.DataSource = data.item.ToList();
                 }
-
-                comboBox3.SelectedItem =
-
-                dataGridView1.DataSource = data.ToList();
+                else
+                {
+                    MessageBox.Show("Data null ! Check login information.");
+                }
             }
             catch (Exception ex)
             {
@@ -139,8 +157,15 @@ namespace SimpleDeveloper
                 formState.Sort.Column = "NAME";
                 formState.Sort.Type = "ASC";
 
-                var data = state.MultipleGet(formState).item;
-                dataGridView1.DataSource = data.ToList();
+                var data = state.MultipleGet(formState);
+                if (data != null)
+                {
+                    dataGridView1.DataSource = data.item.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Data null ! Check login information.");
+                }
             }
             catch (Exception ex)
             {
@@ -160,8 +185,15 @@ namespace SimpleDeveloper
                 formCity.Sort.Column = "NAME";
                 formCity.Sort.Type = "ASC";
 
-                var data = city.MultipleGet(formCity).item;
-                dataGridView1.DataSource = data.ToList();
+                var data = city.MultipleGet(formCity);
+                if (data != null)
+                {
+                    dataGridView1.DataSource = data.item.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Data null ! Check login information.");
+                }
             }
             catch (Exception ex)
             {
@@ -184,8 +216,15 @@ namespace SimpleDeveloper
                 List<int> LocationTyp = new List<int>() { 1 };
                 formLocation.LocationType = LocationTyp;
 
-                var data = location.MultipleGet(formLocation).item;
-                dataGridView1.DataSource = data.ToList();
+                var data = location.MultipleGet(formLocation);
+                if (data != null)
+                {
+                    dataGridView1.DataSource = data.item.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Data null ! Check login information.");
+                }
             }
             catch (Exception ex)
             {
@@ -207,8 +246,15 @@ namespace SimpleDeveloper
                 List<int> LocationTyp = new List<int>() { 1 };
                 formLocation.LocationType = LocationTyp;
 
-                var data = location.MultipleGet(formLocation).item;
-                dataGridView1.DataSource = data.ToList();
+                var data = location.MultipleGet(formLocation);
+                if (data != null)
+                {
+                    dataGridView1.DataSource = data.item.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Data null ! Check login information.");
+                }
             }
             catch (Exception ex)
             {
@@ -231,8 +277,15 @@ namespace SimpleDeveloper
                 List<int> LocationTyp = new List<int>() { 7 };
                 formLocation.LocationType = LocationTyp;
 
-                var data = location.MultipleGet(formLocation).item;
-                dataGridView1.DataSource = data.ToList();
+                var data = location.MultipleGet(formLocation);
+                if (data != null)
+                {
+                    dataGridView1.DataSource = data.item.ToList();
+                }
+                else
+                {
+                    MessageBox.Show("Data null ! Check login information.");
+                }
             }
             catch (Exception ex)
             {
@@ -481,6 +534,7 @@ namespace SimpleDeveloper
                 {
                     List<int> LocationTypePortAirport = new List<int>() { 1 };
                     formLocation.LocationType = LocationTypePortAirport;
+
                 }
                 else if (comboBox5.Text.ToString() == "Forceget Warehouse")
                 {
