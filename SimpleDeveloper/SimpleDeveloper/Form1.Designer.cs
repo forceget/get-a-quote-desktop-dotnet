@@ -95,6 +95,7 @@ namespace SimpleDeveloper
             this.button10 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label23 = new System.Windows.Forms.Label();
             this.takedropdown = new System.Windows.Forms.ComboBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.loginToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -803,6 +804,7 @@ namespace SimpleDeveloper
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label23);
             this.panel2.Controls.Add(this.takedropdown);
             this.panel2.Controls.Add(this.dataGridView1);
             this.panel2.Location = new System.Drawing.Point(592, 38);
@@ -811,6 +813,15 @@ namespace SimpleDeveloper
             this.panel2.TabIndex = 16;
             this.panel2.Visible = false;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(731, 5);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(157, 15);
+            this.label23.TabIndex = 21;
+            this.label23.Text = "How many data does it take ";
             // 
             // takedropdown
             // 
@@ -822,8 +833,7 @@ namespace SimpleDeveloper
             "100",
             "1000",
             "10000"});
-            this.takedropdown.Location = new System.Drawing.Point(0, 1);
-            this.takedropdown.Text = "10";
+            this.takedropdown.Location = new System.Drawing.Point(892, 0);
             this.takedropdown.Name = "takedropdown";
             this.takedropdown.Size = new System.Drawing.Size(92, 23);
             this.takedropdown.TabIndex = 20;
@@ -837,7 +847,7 @@ namespace SimpleDeveloper
             this.getAQuateToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1786, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(343, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -993,7 +1003,6 @@ namespace SimpleDeveloper
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(325, 336);
             this.panel9.TabIndex = 18;
-            this.panel9.Visible = false;
             this.panel9.Paint += new System.Windows.Forms.PaintEventHandler(this.panel9_Paint);
             // 
             // label20
@@ -1027,13 +1036,14 @@ namespace SimpleDeveloper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1786, 818);
+            this.ClientSize = new System.Drawing.Size(343, 372);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.menuStrip1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Forceget Simple Developer";
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.panel1.ResumeLayout(false);
@@ -1052,6 +1062,7 @@ namespace SimpleDeveloper
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel9.ResumeLayout(false);
@@ -1147,5 +1158,6 @@ namespace SimpleDeveloper
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label label23;
     }
 }

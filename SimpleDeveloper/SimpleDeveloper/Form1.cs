@@ -20,6 +20,8 @@ using static Port.MPort;
 using static System.Collections.Specialized.BitVector32;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using System.Diagnostics;
+using System.Reflection.Metadata;
+using System.Runtime.InteropServices;
 
 namespace SimpleDeveloper
 {
@@ -79,7 +81,7 @@ namespace SimpleDeveloper
                 }
                 else
                 {
-                    MessageBox.Show("Data null ! Check login information.");
+                    MessageBox.Show("Data null !\nCheck login information or check the data you sent");
                 }
             }
             catch (Exception ex)
@@ -107,7 +109,8 @@ namespace SimpleDeveloper
                 }
                 else
                 {
-                    MessageBox.Show("Data null ! Check login information.");
+                    MessageBox.Show("Data null !\nCheck login information or check the data you sent");
+
                 }
             }
             catch (Exception ex)
@@ -135,7 +138,8 @@ namespace SimpleDeveloper
                 }
                 else
                 {
-                    MessageBox.Show("Data null ! Check login information.");
+                    MessageBox.Show("Data null !\nCheck login information or check the data you sent");
+
                 }
             }
             catch (Exception ex)
@@ -164,7 +168,7 @@ namespace SimpleDeveloper
                 }
                 else
                 {
-                    MessageBox.Show("Data null ! Check login information.");
+                    MessageBox.Show("Data null !\nCheck login information or check the data you sent");
                 }
             }
             catch (Exception ex)
@@ -192,7 +196,7 @@ namespace SimpleDeveloper
                 }
                 else
                 {
-                    MessageBox.Show("Data null ! Check login information.");
+                    MessageBox.Show("Data null !\nCheck login information or check the data you sent");
                 }
             }
             catch (Exception ex)
@@ -223,7 +227,7 @@ namespace SimpleDeveloper
                 }
                 else
                 {
-                    MessageBox.Show("Data null ! Check login information.");
+                    MessageBox.Show("Data null !\nCheck login information or check the data you sent");
                 }
             }
             catch (Exception ex)
@@ -253,7 +257,7 @@ namespace SimpleDeveloper
                 }
                 else
                 {
-                    MessageBox.Show("Data null ! Check login information.");
+                    MessageBox.Show("Data null !\nCheck login information or check the data you sent");
                 }
             }
             catch (Exception ex)
@@ -284,7 +288,7 @@ namespace SimpleDeveloper
                 }
                 else
                 {
-                    MessageBox.Show("Data null ! Check login information.");
+                    MessageBox.Show("Data null !\nCheck login information or check the data you sent");
                 }
             }
             catch (Exception ex)
@@ -538,12 +542,12 @@ namespace SimpleDeveloper
                 }
                 else if (comboBox5.Text.ToString() == "Forceget Warehouse")
                 {
-                    List<int> LocationTypeForcegetWarehouse = new List<int>() { 1, 7 };
+                    List<int> LocationTypeForcegetWarehouse = new List<int>() { 7 };
                     formLocation.LocationType = LocationTypeForcegetWarehouse;
                 }
                 else if (comboBox5.Text.ToString() == "Business Addres")
                 {
-                    List<int> LocationTypeBusinessAddress = new List<int>() { 12 };
+                    List<int> LocationTypeBusinessAddress = new List<int>() { 2, 3, 5, 6, 12 };
                     formLocation.LocationType = LocationTypeBusinessAddress;
                 }
                 else if (comboBox5.Text.ToString() == "Port/Airport")
@@ -919,27 +923,30 @@ namespace SimpleDeveloper
             panel2.Visible = false;
             panel9.Visible = true;
             this.panel9.Location = new System.Drawing.Point(12, 24);
-            this.ClientSize = new System.Drawing.Size(1005, 765);
+            this.ClientSize = new System.Drawing.Size(363, 410);
 
         }
-
         private void getAQuateToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            System.Windows.Forms.Form form1 = new System.Windows.Forms.Form();
             panel9.Visible = false;
             panel2.Visible = false;
             panel1.Visible = true;
             this.panel1.Location = new System.Drawing.Point(12, 27);
             this.ClientSize = new System.Drawing.Size(1325, 648);
+            //form1.StartPosition = FormStartPosition.WindowsDefaultLocation;
+            CentreWindow(Handle, GetMonitorDimensions());
         }
         private void aPIsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            System.Windows.Forms.Form form1 = new System.Windows.Forms.Form();
             panel1.Visible = false;
             panel9.Visible = false;
             panel2.Visible = true;
             this.panel2.Location = new System.Drawing.Point(12, 24);
             //this.panel2.Size = new System.Drawing.Size(1772, 652);
-            this.ClientSize = new System.Drawing.Size(1772, 652);
-
+            this.ClientSize = new System.Drawing.Size(1000, 400);
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void panel9_Paint(object sender, PaintEventArgs e)
         {
@@ -1017,5 +1024,39 @@ namespace SimpleDeveloper
             }
 
         }
+        #region centrewindow
+        public struct RECT
+        {
+            public int Left;        // x position of upper-left corner
+            public int Top;         // y position of upper-left corner
+            public int Right;       // x position of lower-right corner
+            public int Bottom;      // y position of lower-right corner
+        }
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr SetWindowPos(IntPtr hWnd, int hWndInsertAfter, int x, int Y, int cx, int cy, int wFlags);
+
+        [DllImport("user32.dll")]
+        public static extern bool GetWindowRect(HandleRef hwnd, out RECT lpRect);
+
+        private void CentreWindow(IntPtr handle, Size monitorDimensions)
+        {
+            RECT rect;
+            GetWindowRect(new HandleRef(this, handle), out rect);
+
+            var x1Pos = monitorDimensions.Width / 2 - (rect.Right - rect.Left) / 2;
+            var x2Pos = rect.Right - rect.Left;
+            var y1Pos = monitorDimensions.Height / 2 - (rect.Bottom - rect.Top) / 2;
+            var y2Pos = rect.Bottom - rect.Top;
+
+            SetWindowPos(handle, 0, x1Pos, y1Pos, x2Pos, y2Pos, 0);
+        }
+
+        private Size GetMonitorDimensions()
+        {
+            return SystemInformation.PrimaryMonitorSize;
+        }
+        #endregion
+
     }
 }
