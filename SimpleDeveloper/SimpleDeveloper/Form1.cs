@@ -667,7 +667,16 @@ namespace SimpleDeveloper
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            if (comboBox2.Text.ToString() == "Port/Airport")
+            {
+                panel6.Visible = true;
+                panel7.Visible = false;
+            }
+            else if (comboBox2.Text.ToString() == "Factory/Warehouse")
+            {
+                panel7.Visible = true;
+                panel6.Visible = false;
+            }
         }
         private void label12_Click(object sender, EventArgs e)
         {
@@ -726,11 +735,86 @@ namespace SimpleDeveloper
         {
 
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void textBox1_Enter(object sender, EventArgs e)
         {
-
+            if (textBox1.Text == "L")
+            {
+                textBox1.Text = "";
+                textBox1.ForeColor = Color.Black;
+            }
         }
-
+        private void textBox1_Leave(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "")
+            {
+                textBox1.Text = "L";
+                textBox1.ForeColor = Color.Silver;
+            }
+        }
+        private void textBox2_Enter(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "W")
+            {
+                textBox2.Text = "";
+                textBox2.ForeColor = Color.Black;
+            }
+        }
+        private void textBox2_Leave(object sender, EventArgs e)
+        {
+            if (textBox2.Text == "")
+            {
+                textBox2.Text = "W";
+                textBox2.ForeColor = Color.Silver;
+            }
+        }
+        private void textBox3_Enter(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "H")
+            {
+                textBox3.Text = "";
+                textBox3.ForeColor = Color.Black;
+            }
+        }
+        private void textBox3_Leave(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                textBox3.Text = "H";
+                textBox3.ForeColor = Color.Silver;
+            }
+        }
+        private void textBox4_Enter(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "Total Unit")
+            {
+                textBox4.Text = "";
+                textBox4.ForeColor = Color.Black;
+            }
+        }
+        private void textBox4_Leave(object sender, EventArgs e)
+        {
+            if (textBox4.Text == "")
+            {
+                textBox4.Text = "Total Unit";
+                textBox4.ForeColor = Color.Silver;
+            }
+        }
+        private void textBox5_Enter(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "Kg")
+            {
+                textBox5.Text = "";
+                textBox5.ForeColor = Color.Black;
+            }
+        }
+        private void textBox5_Leave(object sender, EventArgs e)
+        {
+            if (textBox5.Text == "")
+            {
+                textBox5.Text = "Kg";
+                textBox5.ForeColor = Color.Silver;
+            }
+        }
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 

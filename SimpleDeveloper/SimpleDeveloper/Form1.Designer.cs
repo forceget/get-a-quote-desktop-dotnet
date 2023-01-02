@@ -339,7 +339,7 @@ namespace SimpleDeveloper
             this.panel7.Controls.Add(this.label16);
             this.panel7.Controls.Add(this.textBox7);
             this.panel7.Controls.Add(this.label17);
-            this.panel7.Location = new System.Drawing.Point(12, 61);
+            this.panel7.Location = new System.Drawing.Point(15, 58);
             this.panel7.Name = "panel7";
             this.panel7.Size = new System.Drawing.Size(420, 136);
             this.panel7.TabIndex = 14;
@@ -445,12 +445,15 @@ namespace SimpleDeveloper
             // 
             // textBox5
             // 
+            this.textBox5.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox5.Location = new System.Drawing.Point(268, 95);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(114, 23);
             this.textBox5.TabIndex = 7;
             this.textBox5.Text = "Kg";
             this.textBox5.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
+            this.textBox5.Enter += new System.EventHandler(this.textBox5_Enter);
+            this.textBox5.Leave += new System.EventHandler(this.textBox5_Leave);
             // 
             // label15
             // 
@@ -463,12 +466,15 @@ namespace SimpleDeveloper
             // 
             // textBox4
             // 
+            this.textBox4.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox4.Location = new System.Drawing.Point(268, 29);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(145, 23);
             this.textBox4.TabIndex = 5;
             this.textBox4.Text = "Total Unit";
             this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
+            this.textBox4.Enter += new System.EventHandler(this.textBox4_Enter);
+            this.textBox4.Leave += new System.EventHandler(this.textBox4_Leave);
             // 
             // label14
             // 
@@ -481,30 +487,38 @@ namespace SimpleDeveloper
             // 
             // textBox3
             // 
+            this.textBox3.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox3.Location = new System.Drawing.Point(111, 59);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(47, 23);
             this.textBox3.TabIndex = 3;
             this.textBox3.Text = "H";
             this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            this.textBox3.Enter += new System.EventHandler(this.textBox3_Enter);
+            this.textBox3.Leave += new System.EventHandler(this.textBox3_Leave);
             // 
             // textBox2
             // 
+            this.textBox2.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox2.Location = new System.Drawing.Point(58, 59);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(47, 23);
             this.textBox2.TabIndex = 2;
             this.textBox2.Text = "W";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
+            this.textBox2.Enter += new System.EventHandler(this.textBox2_Enter);
+            this.textBox2.Leave += new System.EventHandler(this.textBox2_Leave);
             // 
             // textBox1
             // 
+            this.textBox1.ForeColor = System.Drawing.SystemColors.ScrollBar;
             this.textBox1.Location = new System.Drawing.Point(5, 59);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(47, 23);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = "L";
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBox1.Enter += new System.EventHandler(this.textBox1_Enter);
+            this.textBox1.Leave += new System.EventHandler(this.textBox1_Leave);
             // 
             // label13
             // 

@@ -24,7 +24,6 @@ namespace Token
             }
             catch (Exception ex)
             {
-
                 throw ex;
             }
         }
