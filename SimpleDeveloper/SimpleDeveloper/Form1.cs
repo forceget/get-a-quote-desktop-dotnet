@@ -336,7 +336,7 @@ namespace SimpleDeveloper
                 formGetAQuate.Email = emailTextBox.Text;
                 formGetAQuate.FirstName = response.item.firstName;
                 formGetAQuate.LastName = response.item.lastName;
-                formGetAQuate.PhoneNumber = response.item.phoneNumber;
+                //formGetAQuate.PhoneNumber = response.item.phoneNumber;
                 formGetAQuate.CompanyName = response.item.details.Select(x => x.companyInfo.name).FirstOrDefault();
                 formGetAQuate.CompanyId = response.item.details.Select(x => x.companyId).FirstOrDefault();
 
