@@ -280,7 +280,7 @@ namespace SimpleDeveloper
                 formLocation.Sort.Type = "ASC";
                 List<int> LocationTyp = new List<int>() { 7 };
                 formLocation.LocationType = LocationTyp;
-
+                formLocation.IsForcegetWarehouseLocation = 1;
                 var data = location.MultipleGet(formLocation);
                 if (data != null)
                 {
@@ -544,6 +544,7 @@ namespace SimpleDeveloper
                 {
                     List<int> LocationTypeForcegetWarehouse = new List<int>() { 7 };
                     formLocation.LocationType = LocationTypeForcegetWarehouse;
+                    formLocation.IsForcegetWarehouseLocation = 1;
                 }
                 else if (comboBox5.Text.ToString() == "Business Addres")
                 {
@@ -922,8 +923,8 @@ namespace SimpleDeveloper
             panel1.Visible = false;
             panel2.Visible = false;
             panel9.Visible = true;
-            this.panel9.Location = new System.Drawing.Point(12, 24);
-            this.ClientSize = new System.Drawing.Size(363, 410);
+            this.panel9.Location = new System.Drawing.Point(13, 35);
+            this.ClientSize = new System.Drawing.Size(375, 415);
 
         }
         private void getAQuateToolStripMenuItem_Click(object sender, EventArgs e)
@@ -932,8 +933,8 @@ namespace SimpleDeveloper
             panel9.Visible = false;
             panel2.Visible = false;
             panel1.Visible = true;
-            this.panel1.Location = new System.Drawing.Point(12, 27);
-            this.ClientSize = new System.Drawing.Size(1325, 648);
+            this.panel1.Location = new System.Drawing.Point(13, 35);
+            this.ClientSize = new System.Drawing.Size(1350, 700);
             //form1.StartPosition = FormStartPosition.WindowsDefaultLocation;
             CentreWindow(Handle, GetMonitorDimensions());
         }
@@ -943,9 +944,9 @@ namespace SimpleDeveloper
             panel1.Visible = false;
             panel9.Visible = false;
             panel2.Visible = true;
-            this.panel2.Location = new System.Drawing.Point(12, 24);
+            this.panel2.Location = new System.Drawing.Point(13, 35);
             //this.panel2.Size = new System.Drawing.Size(1772, 652);
-            this.ClientSize = new System.Drawing.Size(1000, 400);
+            this.ClientSize = new System.Drawing.Size(1025, 425);
             this.StartPosition = FormStartPosition.CenterScreen;
         }
         private void panel9_Paint(object sender, PaintEventArgs e)

@@ -145,7 +145,7 @@ namespace SimpleDeveloper
             this.panel1.Controls.Add(this.button12);
             this.panel1.Controls.Add(this.button11);
             this.panel1.Controls.Add(this.button10);
-            this.panel1.Location = new System.Drawing.Point(393, 103);
+            this.panel1.Location = new System.Drawing.Point(379, 87);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1321, 601);
             this.panel1.TabIndex = 15;
@@ -155,7 +155,7 @@ namespace SimpleDeveloper
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(14, 530);
+            this.label22.Location = new System.Drawing.Point(10, 447);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(65, 15);
             this.label22.TabIndex = 14;
@@ -164,7 +164,7 @@ namespace SimpleDeveloper
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button1.Location = new System.Drawing.Point(14, 548);
+            this.button1.Location = new System.Drawing.Point(10, 465);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(226, 30);
             this.button1.TabIndex = 13;
@@ -175,7 +175,7 @@ namespace SimpleDeveloper
             // button13
             // 
             this.button13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button13.Location = new System.Drawing.Point(947, 131);
+            this.button13.Location = new System.Drawing.Point(943, 84);
             this.button13.Name = "button13";
             this.button13.Size = new System.Drawing.Size(303, 71);
             this.button13.TabIndex = 12;
@@ -186,7 +186,7 @@ namespace SimpleDeveloper
             // button28
             // 
             this.button28.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button28.Location = new System.Drawing.Point(1256, 131);
+            this.button28.Location = new System.Drawing.Point(1252, 84);
             this.button28.Name = "button28";
             this.button28.Size = new System.Drawing.Size(53, 71);
             this.button28.TabIndex = 11;
@@ -207,7 +207,7 @@ namespace SimpleDeveloper
             this.panel8.Controls.Add(this.textBox6);
             this.panel8.Controls.Add(this.label18);
             this.panel8.Controls.Add(this.label21);
-            this.panel8.Location = new System.Drawing.Point(947, 207);
+            this.panel8.Location = new System.Drawing.Point(943, 160);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(335, 273);
             this.panel8.TabIndex = 10;
@@ -316,7 +316,7 @@ namespace SimpleDeveloper
             this.panel5.Controls.Add(this.button15);
             this.panel5.Controls.Add(this.button14);
             this.panel5.Controls.Add(this.label12);
-            this.panel5.Location = new System.Drawing.Point(631, 207);
+            this.panel5.Location = new System.Drawing.Point(627, 160);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(435, 273);
             this.panel5.TabIndex = 6;
@@ -571,7 +571,7 @@ namespace SimpleDeveloper
             this.panel4.Controls.Add(this.label10);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Location = new System.Drawing.Point(325, 207);
+            this.panel4.Location = new System.Drawing.Point(321, 160);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(461, 273);
             this.panel4.TabIndex = 5;
@@ -671,7 +671,7 @@ namespace SimpleDeveloper
             this.panel3.Controls.Add(this.label6);
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.label3);
-            this.panel3.Location = new System.Drawing.Point(14, 207);
+            this.panel3.Location = new System.Drawing.Point(10, 160);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(507, 273);
             this.panel3.TabIndex = 4;
@@ -762,7 +762,7 @@ namespace SimpleDeveloper
             // button12
             // 
             this.button12.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button12.Location = new System.Drawing.Point(631, 131);
+            this.button12.Location = new System.Drawing.Point(627, 84);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(310, 71);
             this.button12.TabIndex = 2;
@@ -773,7 +773,7 @@ namespace SimpleDeveloper
             // button11
             // 
             this.button11.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button11.Location = new System.Drawing.Point(325, 130);
+            this.button11.Location = new System.Drawing.Point(321, 83);
             this.button11.Name = "button11";
             this.button11.Size = new System.Drawing.Size(300, 71);
             this.button11.TabIndex = 1;
@@ -784,7 +784,7 @@ namespace SimpleDeveloper
             // button10
             // 
             this.button10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.button10.Location = new System.Drawing.Point(14, 130);
+            this.button10.Location = new System.Drawing.Point(10, 83);
             this.button10.Name = "button10";
             this.button10.Size = new System.Drawing.Size(305, 71);
             this.button10.TabIndex = 0;
@@ -817,7 +817,7 @@ namespace SimpleDeveloper
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(731, 5);
+            this.label23.Location = new System.Drawing.Point(712, 3);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(157, 15);
             this.label23.TabIndex = 21;
@@ -833,6 +833,7 @@ namespace SimpleDeveloper
             "100",
             "1000",
             "10000"});
+            this.takedropdown.SelectedItem = "100";
             this.takedropdown.Location = new System.Drawing.Point(892, 0);
             this.takedropdown.Name = "takedropdown";
             this.takedropdown.Size = new System.Drawing.Size(92, 23);
@@ -847,7 +848,7 @@ namespace SimpleDeveloper
             this.getAQuateToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(343, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(361, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -999,7 +1000,7 @@ namespace SimpleDeveloper
             this.panel9.Controls.Add(this.button9);
             this.panel9.Controls.Add(this.emailTextBox);
             this.panel9.Controls.Add(this.passwordTextBox);
-            this.panel9.Location = new System.Drawing.Point(12, 27);
+            this.panel9.Location = new System.Drawing.Point(12, 32);
             this.panel9.Name = "panel9";
             this.panel9.Size = new System.Drawing.Size(325, 336);
             this.panel9.TabIndex = 18;
@@ -1036,7 +1037,7 @@ namespace SimpleDeveloper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(343, 372);
+            this.ClientSize = new System.Drawing.Size(361, 410);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);

@@ -55,8 +55,7 @@ namespace Location
             public string CountryName { get; set; }
             public string CountryCode { get; set; }
             public string StateCode { get; set; }
-
-
+            public int IsForcegetWarehouseLocation { get; set; } = 2;
         }
 
         public class Response
