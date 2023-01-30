@@ -482,6 +482,10 @@ namespace SimpleDeveloper
                 if (comboBox5.Text.ToString() == "Amazon Fulfillment Center")
                 {
                     comboBox6.Items.Add(new { Text = "United States", Value = "cd4928df-b552-4c56-8601-e861aac3a923" });
+                    comboBox6.Items.Add(new { Text = "Germany", Value = "d8f1b5ba-8999-450e-86d6-af349908b26c" });
+                    comboBox6.Items.Add(new { Text = "United Kingdom", Value = "0e306d3f-7ad6-4e2c-8a87-a34f0b19519a" });
+                    comboBox6.Items.Add(new { Text = "Australia", Value = "7bf55c32-16df-41c9-940a-ed2080146beb" });
+                    comboBox6.Items.Add(new { Text = "Canada", Value = "c1b56132-9ab5-4515-9e70-40058a4819f9" });
                     comboBox6.DisplayMember = "Text";
                 }
                 else if (comboBox5.Text.ToString() == "Forceget Warehouse")
