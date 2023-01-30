@@ -46,6 +46,7 @@ namespace Token
         public class CompanyInfo
         {
             public object id { get; set; }
+            public object userId { get; set; }
             public object taxEINNumber { get; set; }
             public string name { get; set; }
             public object contactInfo { get; set; }
@@ -66,7 +67,7 @@ namespace Token
             public object state { get; set; }
             public object locations { get; set; }
             public object products { get; set; }
-            public object userDetails { get; set; }
+            public object companyTeams { get; set; }
             public bool isMember { get; set; }
             public object latitude { get; set; }
             public object longitude { get; set; }
@@ -93,15 +94,13 @@ namespace Token
             public object monthlyAverageShipmentId { get; set; }
             public object eventId { get; set; }
             public object @event { get; set; }
+            public int isRegularCustomer { get; set; }
+            public int isForceRegular { get; set; }
+            public object billingInfo { get; set; }
+            public bool isDontDeliverList { get; set; }
         }
 
-        public class CorrespondanceNotificationSettingType
-        {
-            public int id { get; set; }
-            public string name { get; set; }
-        }
-
-        public class Detail
+        public class CompanyTeam
         {
             public int id { get; set; }
             public string userId { get; set; }
@@ -112,8 +111,14 @@ namespace Token
             public JobTitle jobTitle { get; set; }
             public int roleId { get; set; }
             public object role { get; set; }
-            public string profilePhotoId { get; set; }
             public string mobileNumber { get; set; }
+            public bool editAuthority { get; set; }
+        }
+
+        public class CorrespondanceNotificationSettingType
+        {
+            public int id { get; set; }
+            public string name { get; set; }
         }
 
         public class DocumentSubmissionNotificationSettingType
@@ -132,29 +137,24 @@ namespace Token
         {
             public string id { get; set; }
             public string email { get; set; }
-            public bool emailConfirmed { get; set; }
+            public int isEmailConfirmed { get; set; }
             public object passwordHash { get; set; }
             public string phoneNumber { get; set; }
-            public bool phoneNumberConfirmed { get; set; }
-            public bool twoFactorEnabled { get; set; }
+            public int isPhoneNumberConfirmed { get; set; }
+            public int isTwoFactorEnabled { get; set; }
             public DateTime lockoutEndDateUtc { get; set; }
-            public bool lockoutEnabled { get; set; }
+            public int isLockoutEnabled { get; set; }
             public int accessFailedCount { get; set; }
             public string userName { get; set; }
-            public List<Detail> details { get; set; }
+            public List<CompanyTeam> companyTeams { get; set; }
             public int isMember { get; set; }
             public string uniqueNickname { get; set; }
             public string firstName { get; set; }
             public string lastName { get; set; }
-            public int roleId { get; set; }
-            public Role role { get; set; }
-            public string jobTitleId { get; set; }
-            public JobTitle jobTitle { get; set; }
             public object terms { get; set; }
             public object fromQs { get; set; }
             public string profilePhoto { get; set; }
             public List<NotificationSetting> notificationSettings { get; set; }
-            public object companyName { get; set; }
             public string token { get; set; }
             public object commissionType { get; set; }
             public object commissionValue { get; set; }
@@ -162,6 +162,8 @@ namespace Token
             public object lastOnlineDate { get; set; }
             public object eventId { get; set; }
             public object @event { get; set; }
+            public string roleGroupTypeId { get; set; }
+            public RoleGroupType roleGroupType { get; set; }
         }
 
         public class JobTitle
@@ -198,13 +200,10 @@ namespace Token
             public string name { get; set; }
         }
 
-        public class Role
+        public class RoleGroupType
         {
-            public int id { get; set; }
+            public string id { get; set; }
             public string name { get; set; }
-            public string groupType { get; set; }
-            public object roleGroupType { get; set; }
-            public string definition { get; set; }
         }
 
         public class Root
