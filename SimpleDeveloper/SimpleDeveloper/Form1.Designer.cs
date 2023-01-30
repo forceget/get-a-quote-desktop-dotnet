@@ -227,6 +227,8 @@ namespace SimpleDeveloper
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
+            this.checkBox3.Checked = true;
+            this.checkBox3.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox3.Location = new System.Drawing.Point(31, 241);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(128, 19);
@@ -245,6 +247,8 @@ namespace SimpleDeveloper
             // checkBox2
             // 
             this.checkBox2.AutoSize = true;
+            this.checkBox2.Checked = true;
+            this.checkBox2.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox2.Location = new System.Drawing.Point(31, 216);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(77, 19);
@@ -833,7 +837,6 @@ namespace SimpleDeveloper
             "100",
             "1000",
             "10000"});
-            this.takedropdown.SelectedItem = "100";
             this.takedropdown.Location = new System.Drawing.Point(892, 0);
             this.takedropdown.Name = "takedropdown";
             this.takedropdown.Size = new System.Drawing.Size(92, 23);
