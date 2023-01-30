@@ -62,12 +62,10 @@ namespace SimpleDeveloper
             this.button26 = new System.Windows.Forms.Button();
             this.panel7 = new System.Windows.Forms.Panel();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.button21 = new System.Windows.Forms.Button();
             this.label16 = new System.Windows.Forms.Label();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.label17 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.button22 = new System.Windows.Forms.Button();
             this.button17 = new System.Windows.Forms.Button();
             this.button16 = new System.Windows.Forms.Button();
             this.textBox5 = new System.Windows.Forms.TextBox();
@@ -128,6 +126,7 @@ namespace SimpleDeveloper
             this.label20 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.button22 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
@@ -459,7 +458,6 @@ namespace SimpleDeveloper
             // panel7
             // 
             this.panel7.Controls.Add(this.comboBox8);
-            this.panel7.Controls.Add(this.button21);
             this.panel7.Controls.Add(this.label16);
             this.panel7.Controls.Add(this.textBox7);
             this.panel7.Controls.Add(this.label17);
@@ -484,15 +482,6 @@ namespace SimpleDeveloper
             this.comboBox8.Size = new System.Drawing.Size(139, 23);
             this.comboBox8.TabIndex = 13;
             this.comboBox8.SelectedIndexChanged += new System.EventHandler(this.comboBox8_SelectedIndexChanged);
-            // 
-            // button21
-            // 
-            this.button21.Location = new System.Drawing.Point(5, 110);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(177, 23);
-            this.button21.TabIndex = 12;
-            this.button21.Text = "+ Add Another Load";
-            this.button21.UseVisualStyleBackColor = true;
             // 
             // label16
             // 
@@ -538,16 +527,6 @@ namespace SimpleDeveloper
             this.panel6.Size = new System.Drawing.Size(420, 136);
             this.panel6.TabIndex = 13;
             this.panel6.Visible = false;
-            // 
-            // button22
-            // 
-            this.button22.Location = new System.Drawing.Point(5, 110);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(177, 23);
-            this.button22.TabIndex = 13;
-            this.button22.Text = "+ Add Another Load";
-            this.button22.UseVisualStyleBackColor = true;
-            this.button22.Click += new System.EventHandler(this.button22_Click);
             // 
             // button17
             // 
@@ -970,7 +949,7 @@ namespace SimpleDeveloper
             this.getAQuateToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(353, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1746, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -1155,11 +1134,21 @@ namespace SimpleDeveloper
             this.label2.TabIndex = 16;
             this.label2.Text = "Email";
             // 
+            // button22
+            // 
+            this.button22.Location = new System.Drawing.Point(5, 110);
+            this.button22.Name = "button22";
+            this.button22.Size = new System.Drawing.Size(177, 23);
+            this.button22.TabIndex = 13;
+            this.button22.Text = "+ Add Another Load";
+            this.button22.UseVisualStyleBackColor = true;
+            this.button22.Click += new System.EventHandler(this.button22_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(353, 387);
+            this.ClientSize = new System.Drawing.Size(1746, 743);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -1238,9 +1227,7 @@ namespace SimpleDeveloper
         private System.Windows.Forms.Panel panel7;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button22;
         private System.Windows.Forms.Panel panel8;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Button button23;
@@ -1293,5 +1280,6 @@ namespace SimpleDeveloper
         private System.Windows.Forms.TextBox textBox11;
         private System.Windows.Forms.TextBox textBox12;
         private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button22;
     }
 }
