@@ -46,14 +46,14 @@ namespace SimpleDeveloper
                 {
                     MessageBox.Show("Login Successful");
                 }
-                else 
+                else
                 {
                     foreach (var item in response.statusTexts)
                     {
                         MessageBox.Show(item.ToString());
                     }
                 }
-                
+
             }
             catch (Exception ex)
             {
@@ -332,13 +332,22 @@ namespace SimpleDeveloper
                 formtoken.PasswordHash = passwordTextBox.Text;
 
                 var response = RToken.Login(formtoken);
-
-                formGetAQuate.Email = emailTextBox.Text;
-                formGetAQuate.FirstName = response.item.firstName;
-                formGetAQuate.LastName = response.item.lastName;
-                formGetAQuate.CompanyName = response.item.companyTeams.Select(x => x.companyInfo.name).FirstOrDefault();
-                formGetAQuate.CompanyId = response.item.companyTeams.Select(x => x.companyId).FirstOrDefault();
-
+                if (response.item == null)
+                {
+                    panel10.Visible = true;
+                    panel3.Visible = false;
+                    panel4.Visible = false;
+                    panel5.Visible = false;
+                    panel8.Visible = false;
+                }
+                else
+                {
+                    formGetAQuate.Email = emailTextBox.Text;
+                    formGetAQuate.FirstName = response.item.firstName;
+                    formGetAQuate.LastName = response.item.lastName;
+                    formGetAQuate.CompanyName = response.item.companyTeams.Select(x => x.companyInfo.name).FirstOrDefault();
+                    formGetAQuate.CompanyId = response.item.companyTeams.Select(x => x.companyId).FirstOrDefault();
+                }
 
                 formGetAQuate.FromType = comboBox2.Text.ToString();
                 formGetAQuate.FromLocationCountryId = (comboBox3.SelectedItem as dynamic).Value;
@@ -424,12 +433,10 @@ namespace SimpleDeveloper
         {
             try
             {
-                MToken.FilterForm formtoken = new MToken.FilterForm();
-                formtoken.Email = emailTextBox.Text;
-                formtoken.PasswordHash = passwordTextBox.Text;
-
-                var response = RToken.Login(formtoken);
-
+                if (comboBox4.SelectedIndex == -1)
+                {
+                    comboBox4.Items.Clear();
+                }
                 RLocation location = new RLocation();
                 MLocation.FilterForm formLocation = new MLocation.FilterForm();
                 formLocation.Take = 100000;
@@ -468,16 +475,13 @@ namespace SimpleDeveloper
                 {
                     comboBox6.Items.Clear();
                 }
-                MToken.FilterForm formtoken = new MToken.FilterForm();
-                formtoken.Email = emailTextBox.Text;
-                formtoken.PasswordHash = passwordTextBox.Text;
-                var response = RToken.Login(formtoken);
-                RCountry country = new RCountry();
-                MCountry.FilterForm formCountry = new MCountry.FilterForm();
-                formCountry.Take = 1000;
-                formCountry.Offset = 0;
-                formCountry.Sort.Column = "NAME";
-                formCountry.Sort.Type = "ASC";
+
+                RLocation location = new RLocation();
+                MLocation.FilterForm formLocation = new MLocation.FilterForm();
+                formLocation.Take = 100000;
+                formLocation.Offset = 0;
+                formLocation.Sort.Column = "NAME";
+                formLocation.Sort.Type = "ASC";
                 if (comboBox5.Text.ToString() == "Amazon Fulfillment Center")
                 {
                     comboBox6.Items.Add(new { Text = "United States", Value = "cd4928df-b552-4c56-8601-e861aac3a923" });
@@ -496,7 +500,7 @@ namespace SimpleDeveloper
                 }
                 else if (comboBox5.Text.ToString() == "Business Address")
                 {
-                    var data = country.MultipleGet(formCountry).item;
+                    var data = location.MultipleGet(formLocation).item;
                     foreach (var items in data)
                     {
                         comboBox6.Items.Add(new { Text = items.name, Value = items.id });
@@ -505,7 +509,7 @@ namespace SimpleDeveloper
                 }
                 else if (comboBox5.Text.ToString() == "Port/Airport")
                 {
-                    var data = country.MultipleGet(formCountry).item;
+                    var data = location.MultipleGet(formLocation).item;
                     foreach (var items in data)
                     {
                         comboBox6.Items.Add(new { Text = items.name, Value = items.id });
@@ -523,11 +527,10 @@ namespace SimpleDeveloper
         {
             try
             {
-                MToken.FilterForm formtoken = new MToken.FilterForm();
-                formtoken.Email = emailTextBox.Text;
-                formtoken.PasswordHash = passwordTextBox.Text;
-                var response = RToken.Login(formtoken);
-
+                if (comboBox7.SelectedIndex == -1)
+                {
+                    comboBox7.Items.Clear();
+                }
                 RLocation location = new RLocation();
                 MLocation.FilterForm formLocation = new MLocation.FilterForm();
 
@@ -576,11 +579,10 @@ namespace SimpleDeveloper
         {
             try
             {
-                MToken.FilterForm formtoken = new MToken.FilterForm();
-                formtoken.Email = emailTextBox.Text;
-                formtoken.PasswordHash = passwordTextBox.Text;
-                var response = RToken.Login(formtoken);
-
+                if (comboBox3.SelectedIndex == -1)
+                {
+                    comboBox3.Items.Clear();
+                }
                 RCountry country = new RCountry();
                 MCountry.FilterForm formCountry = new MCountry.FilterForm();
 
@@ -1062,5 +1064,211 @@ namespace SimpleDeveloper
         }
         #endregion
 
+        private void button2_Click(object sender, EventArgs e)
+        {
+            panel10.Visible = false;
+        }
+
+        private void panel10_Paint_1(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void textBox8_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void textBox8_Enter(object sender, EventArgs e)
+        {
+            if (textBox8.Text == "First Name *")
+            {
+                textBox8.Text = "";
+                textBox8.ForeColor = Color.Black;
+            }
+        }
+        private void textBox8_Leave(object sender, EventArgs e)
+        {
+            if (textBox8.Text == "")
+            {
+                textBox8.Text = "First Name *";
+                textBox8.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBox9_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void textBox9_Enter(object sender, EventArgs e)
+        {
+            if (textBox9.Text == "Last Name *")
+            {
+                textBox9.Text = "";
+                textBox9.ForeColor = Color.Black;
+            }
+        }
+        private void textBox9_Leave(object sender, EventArgs e)
+        {
+            if (textBox9.Text == "")
+            {
+                textBox9.Text = "Last Name *";
+                textBox9.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBox10_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void textBox10_Enter(object sender, EventArgs e)
+        {
+            if (textBox10.Text == "Company Name *")
+            {
+                textBox10.Text = "";
+                textBox10.ForeColor = Color.Black;
+            }
+        }
+        private void textBox10_Leave(object sender, EventArgs e)
+        {
+            if (textBox10.Text == "")
+            {
+                textBox10.Text = "Company Name *";
+                textBox10.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBox11_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void textBox11_Enter(object sender, EventArgs e)
+        {
+            if (textBox11.Text == "Mobile Number *")
+            {
+                textBox11.Text = "";
+                textBox11.ForeColor = Color.Black;
+            }
+        }
+        private void textBox11_Leave(object sender, EventArgs e)
+        {
+            if (textBox11.Text == "")
+            {
+                textBox11.Text = "Mobile Number *";
+                textBox11.ForeColor = Color.Silver;
+            }
+        }
+
+        private void textBox12_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+        private void textBox12_Enter(object sender, EventArgs e)
+        {
+            if (textBox12.Text == "Email *")
+            {
+                textBox12.Text = "";
+                textBox12.ForeColor = Color.Black;
+            }
+        }
+        private void textBox12_Leave(object sender, EventArgs e)
+        {
+            if (textBox12.Text == "")
+            {
+                textBox12.Text = "Email *";
+                textBox12.ForeColor = Color.Silver;
+            }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RAutomaticPricing r = new RAutomaticPricing();
+                MAutomaticPricing.Form formGetAQuate = new MAutomaticPricing.Form();
+                formGetAQuate.Email = textBox12.Text;
+                formGetAQuate.FirstName = textBox8.Text;
+                formGetAQuate.LastName = textBox9.Text;
+                formGetAQuate.CompanyName = textBox10.Text;
+                formGetAQuate.PhoneNumber = textBox11.Text;
+
+                formGetAQuate.FromType = comboBox2.Text.ToString();
+                formGetAQuate.FromLocationCountryId = (comboBox3.SelectedItem as dynamic).Value;
+                formGetAQuate.FromLocationId = (comboBox4.SelectedItem as dynamic).Value;
+
+                formGetAQuate.ToType = comboBox5.Text.ToString();
+                formGetAQuate.ToLocationCountryId = (comboBox4.SelectedItem as dynamic).Value;
+                formGetAQuate.ToLocationId = (comboBox7.SelectedItem as dynamic).Value;
+                if (formGetAQuate.FromType == "Port/Airport")
+                {
+                    formGetAQuate.Packages = new List<FAutomaticPricingPackage>();
+                    formGetAQuate.Packages.Add(new FAutomaticPricingPackage
+                    {
+                        Height = textBox3.Text,
+                        Length = textBox1.Text,
+                        MetricType = "Metric",
+                        PackageTypeId = "3",
+                        TotalUnit = textBox4.Text,
+                        Weight = textBox5.Text,
+                        Width = textBox2.Text
+                    });
+                    formGetAQuate.ShipmentLoadType = 1;
+                }
+                else
+                {
+                    formGetAQuate.Containers = new List<FAutomaticPricingContainer>();
+                    formGetAQuate.Containers.Add(new FAutomaticPricingContainer
+                    {
+                        TotalUnit = textBox7.Text,
+                        Size = comboBox8.Text.ToString(),
+                    });
+                    formGetAQuate.ShipmentLoadType = 2;
+                }
+
+                formGetAQuate.ProductAmount = textBox6.Text;
+                formGetAQuate.ProductReadyDate = monthCalendar1.SelectionRange.Start.ToString();
+                if (checkBox1.Checked == true)
+                {
+                    formGetAQuate.HazardousGoods = 1;
+
+                }
+                else
+                {
+                    formGetAQuate.HazardousGoods = 2;
+
+                }
+                if (checkBox2.Checked == true)
+                {
+                    formGetAQuate.Insurance = 1;
+
+                }
+                else
+                {
+                    formGetAQuate.Insurance = 2;
+
+                }
+                if (checkBox3.Checked == true)
+                {
+                    formGetAQuate.CustomsClearance = 1;
+
+                }
+                else
+                {
+                    formGetAQuate.CustomsClearance = 2;
+
+                }
+
+                var data = r.GetAQuate(formGetAQuate);
+                if (data.status == 200)
+                {
+                    panel10.Visible = false;
+                    MessageBox.Show(data.statusText);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
     }
 }

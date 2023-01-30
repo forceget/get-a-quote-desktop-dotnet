@@ -34,6 +34,15 @@ namespace SimpleDeveloper
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.button3 = new System.Windows.Forms.Button();
+            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label27 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
@@ -120,6 +129,7 @@ namespace SimpleDeveloper
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
+            this.panel10.SuspendLayout();
             this.panel8.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel7.SuspendLayout();
@@ -134,6 +144,7 @@ namespace SimpleDeveloper
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.panel10);
             this.panel1.Controls.Add(this.label22);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.button13);
@@ -151,6 +162,114 @@ namespace SimpleDeveloper
             this.panel1.TabIndex = 15;
             this.panel1.Visible = false;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            // 
+            // panel10
+            // 
+            this.panel10.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.panel10.Controls.Add(this.button3);
+            this.panel10.Controls.Add(this.textBox12);
+            this.panel10.Controls.Add(this.textBox11);
+            this.panel10.Controls.Add(this.textBox10);
+            this.panel10.Controls.Add(this.textBox9);
+            this.panel10.Controls.Add(this.textBox8);
+            this.panel10.Controls.Add(this.button2);
+            this.panel10.Controls.Add(this.label27);
+            this.panel10.Location = new System.Drawing.Point(504, 160);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(278, 358);
+            this.panel10.TabIndex = 13;
+            this.panel10.Visible = false;
+            this.panel10.Paint += new System.Windows.Forms.PaintEventHandler(this.panel10_Paint_1);
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button3.Location = new System.Drawing.Point(75, 295);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(120, 28);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "Agree && Sing Up";
+            this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // textBox12
+            // 
+            this.textBox12.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox12.Location = new System.Drawing.Point(60, 256);
+            this.textBox12.Name = "textBox12";
+            this.textBox12.Size = new System.Drawing.Size(155, 23);
+            this.textBox12.TabIndex = 23;
+            this.textBox12.Text = "Email *";
+            this.textBox12.TextChanged += new System.EventHandler(this.textBox12_TextChanged);
+            this.textBox12.Enter += new System.EventHandler(this.textBox12_Enter);
+            this.textBox12.Leave += new System.EventHandler(this.textBox12_Leave);
+            // 
+            // textBox11
+            // 
+            this.textBox11.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox11.Location = new System.Drawing.Point(60, 203);
+            this.textBox11.Name = "textBox11";
+            this.textBox11.Size = new System.Drawing.Size(155, 23);
+            this.textBox11.TabIndex = 22;
+            this.textBox11.Text = "Mobile Number *";
+            this.textBox11.TextChanged += new System.EventHandler(this.textBox11_TextChanged);
+            this.textBox11.Enter += new System.EventHandler(this.textBox11_Enter);
+            this.textBox11.Leave += new System.EventHandler(this.textBox11_Leave);
+            // 
+            // textBox10
+            // 
+            this.textBox10.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox10.Location = new System.Drawing.Point(60, 152);
+            this.textBox10.Name = "textBox10";
+            this.textBox10.Size = new System.Drawing.Size(155, 23);
+            this.textBox10.TabIndex = 21;
+            this.textBox10.Text = "Company Name *";
+            this.textBox10.TextChanged += new System.EventHandler(this.textBox10_TextChanged);
+            this.textBox10.Enter += new System.EventHandler(this.textBox10_Enter);
+            this.textBox10.Leave += new System.EventHandler(this.textBox10_Leave);
+            // 
+            // textBox9
+            // 
+            this.textBox9.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox9.Location = new System.Drawing.Point(60, 99);
+            this.textBox9.Name = "textBox9";
+            this.textBox9.Size = new System.Drawing.Size(155, 23);
+            this.textBox9.TabIndex = 20;
+            this.textBox9.Text = "Last Name *";
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
+            this.textBox9.Enter += new System.EventHandler(this.textBox9_Enter);
+            this.textBox9.Leave += new System.EventHandler(this.textBox9_Leave);
+            // 
+            // textBox8
+            // 
+            this.textBox8.ForeColor = System.Drawing.SystemColors.ScrollBar;
+            this.textBox8.Location = new System.Drawing.Point(60, 47);
+            this.textBox8.Name = "textBox8";
+            this.textBox8.Size = new System.Drawing.Size(155, 23);
+            this.textBox8.TabIndex = 19;
+            this.textBox8.Text = "First Name *";
+            this.textBox8.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
+            this.textBox8.Enter += new System.EventHandler(this.textBox8_Enter);
+            this.textBox8.Leave += new System.EventHandler(this.textBox8_Leave);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(253, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(25, 32);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "X";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(104, 18);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(48, 15);
+            this.label27.TabIndex = 9;
+            this.label27.Text = "Sign Up";
             // 
             // label22
             // 
@@ -851,7 +970,7 @@ namespace SimpleDeveloper
             this.getAQuateToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(361, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(353, 24);
             this.menuStrip1.TabIndex = 17;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
@@ -1040,7 +1159,7 @@ namespace SimpleDeveloper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(361, 410);
+            this.ClientSize = new System.Drawing.Size(353, 387);
             this.Controls.Add(this.panel9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel2);
@@ -1052,6 +1171,8 @@ namespace SimpleDeveloper
             this.Load += new System.EventHandler(this.Form1_Load_1);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.panel10.ResumeLayout(false);
+            this.panel10.PerformLayout();
             this.panel8.ResumeLayout(false);
             this.panel8.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -1163,5 +1284,14 @@ namespace SimpleDeveloper
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Panel panel10;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.Button button3;
     }
 }
